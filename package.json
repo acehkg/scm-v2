@@ -1,0 +1,25 @@
+{
+  "name": "simcoecountymalt.com",
+  "version": "1.0.0",
+  "description": "Wesbite for Simcoe County Malt",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Andrew Embury",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "faunadb": "^4.1.1",
+    "next": "^10.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1",
+    "styled-normalize": "^8.0.7"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.12.0"
+  }
+}
