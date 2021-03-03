@@ -17,3 +17,26 @@
 //create cart and cart logic
 //setup stripe
 //setup payment processing function
+const url = '/api/getAllBatches';
+const Analysis = () => {
+  const [analysisData, setAnalysisData] = useState([]);
+
+  useEffect(() => {
+    const fetchAnalysis = async () => {
+      const response = await axios.get(url);
+      const batches = response.data;
+      setAnalysisData(batches);
+    };
+    fetchAnalysis();
+  }, []);
+  return analysisData.map((batch) => {
+    return (
+      <div>
+        <span>{batch.batch}</span>
+        <span>{batch.name}</span>
+        <span>{batch.analysis.friability}</span>
+        <span>{batch.analysis.moisture}</span>
+      </div>
+    );
+  });
+};

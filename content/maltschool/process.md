@@ -25,5 +25,6 @@ The hydrated barley is then left to germinate for 4-5 days in a carfeully contro
 
 Kilning (drying) the grain consists of 2 or 3 distinct phases. The first, drying, is at a relatively low temperature and this is the phase where the grain loses most of its moisture. After drying the temperature of the kiln is slowly raised to cure the malt redering it stable. Depending on the type of malt being produced the temperature may be raised even further to darken the color and produce more flavours.
 
-##Finished Malt
+### Finished Malt
+
 After the kilning process is complete the grain is left to cool before being cleaned and packaged. Since finshed malt is low moisture, around 5%, it is a shelf stable product that can be stored for years.
