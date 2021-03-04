@@ -1,16 +1,9 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import marked from 'marked';
-import styled from 'styled-components';
-import { PageContainer } from '../../components/styles/globalStyles';
+import Article from '../../components/Article';
 
-const Article = ({ article: { data, content } }) => {
-  const html = marked(content);
-  return (
-    <PageContainer>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-    </PageContainer>
-  );
+const ArticlePage = ({ article: { data, content } }) => {
+  return <Article content={content} data={data} />;
 };
 
 export const getStaticPaths = () => {
@@ -42,4 +35,4 @@ export const getStaticProps = async (context) => {
     },
   };
 };
-export default Article;
+export default ArticlePage;
