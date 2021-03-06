@@ -6,24 +6,25 @@ const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
-
-const LogoContainer = styled.div`
-  margin-left: 2rem;
-  margin-top: 2rem;
-  img {
-    height: 15vh;
+  height: 12vh;
+  @media (max-width: 1024px) {
+    width: 80%;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
 const LinkContainer = styled.div`
-  margin-right: 2rem;
-  margin-top: 2rem;
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   font-size: 1.25rem;
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
   @media (max-width: 768px) {
     display: none;
   }
@@ -31,7 +32,7 @@ const LinkContainer = styled.div`
 
 const DesktopLink = styled.a`
   text-decoration: none;
-  color: inherit;
+  color: #4f1111;
   transition: all ease-in-out 250ms;
 
   &:hover {
@@ -42,23 +43,28 @@ const DesktopLink = styled.a`
 
 const Navbar = () => {
   return (
-    <NavContainer>
-      <LogoContainer>
-        <img alt='Simcoe County Malt' src='/images/logored.png' />
-      </LogoContainer>
-      <LinkContainer>
-        <Link href='/'>
-          <DesktopLink>HOME</DesktopLink>
-        </Link>
-        <Link href='/malt'>
-          <DesktopLink>OUR MALT</DesktopLink>
-        </Link>
-        <Link href='/maltschool'>
-          <DesktopLink>LEARN</DesktopLink>
-        </Link>
-      </LinkContainer>
+    <>
+      <NavContainer>
+        <LinkContainer>
+          <Link href='/'>
+            <DesktopLink>HOME</DesktopLink>
+          </Link>
+          <Link href='/malt'>
+            <DesktopLink>OUR MALT</DesktopLink>
+          </Link>
+          <Link href='/maltschool'>
+            <DesktopLink>LEARN</DesktopLink>
+          </Link>
+          <Link href='/l'>
+            <DesktopLink>NEWS</DesktopLink>
+          </Link>
+          <Link href='/'>
+            <DesktopLink>CONTACT</DesktopLink>
+          </Link>
+        </LinkContainer>
+      </NavContainer>
       <Burger />
-    </NavContainer>
+    </>
   );
 };
 

@@ -3,10 +3,11 @@ import RightNav from './RightNav';
 import { useState } from 'react';
 
 const StyledBurger = styled.div`
+  position: absolute;
   width: 2rem;
   height: 2rem;
-  margin-right: 2rem;
-  margin-top: 2rem;
+  right: 2rem;
+  top: 2rem;
   z-index: 20;
   display: none;
   @media (max-width: 768px) {

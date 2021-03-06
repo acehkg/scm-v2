@@ -41,6 +41,12 @@ const RightNav = ({ open }) => {
       <Link href='/maltschool'>
         <a>LEARN</a>
       </Link>
+      <Link href='/'>
+        <a>NEWS</a>
+      </Link>
+      <Link href='/'>
+        <a>CONTACT</a>
+      </Link>
     </MobileLinks>
   );
 };
