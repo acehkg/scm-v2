@@ -11,7 +11,7 @@ const MobileLinks = styled.div`
     align-items: center;
     flex-flow: column nowrap;
     background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(40px);
     border-radius: 1rem;
     background-clip: padding-box;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 15px;
@@ -22,6 +22,7 @@ const MobileLinks = styled.div`
     height: 100vh;
     width: 50%;
     transition: transform 0.3s ease-in-out;
+    z-index: 15;
     a {
       color: #4f1111;
       text-decoration: none;

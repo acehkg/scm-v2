@@ -63,6 +63,7 @@ const Navbar = () => {
           </Link>
         </LinkContainer>
       </NavContainer>
+
       <Burger />
     </>
   );

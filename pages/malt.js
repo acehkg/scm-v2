@@ -1,7 +1,7 @@
 import faunadb from 'faunadb';
-import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+import BatchCard from '../components/BatchCard';
 import { UnstyledLink } from '../components/styles/globalStyles';
 
 const Container = styled.div`
@@ -15,19 +15,11 @@ const BatchContainer = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-  @media (max-width: 520px) {
+  grid-gap: 2rem;
+  @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 2rem;
-  }
-`;
-const Batch = styled.div`
-  justify-self: center;
-  height: 30rem;
-  width: clamp(280px, 80vw, 22rem);
-  background: red;
-  @media (max-width: 520px) {
     margin-bottom: 2rem;
   }
 `;
@@ -58,11 +50,7 @@ const Analysis = ({ batches }) => {
 
       <BatchContainer>
         {batches.map((b) => {
-          return (
-            <Batch>
-              <h1 key={b.id}>{b.slug}</h1>
-            </Batch>
-          );
+          return <BatchCard key={b.id} batch={b} />;
         })}
       </BatchContainer>
     </Container>
