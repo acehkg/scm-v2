@@ -7,6 +7,7 @@ const Container = styled.div`
   font-family: 'Poppins', sans-serif;
   height: 100vh;
   color: #5c4e4e;
+  background: #fff;
 `;
 
 const MyApp = ({ Component, pageProps }) => {
