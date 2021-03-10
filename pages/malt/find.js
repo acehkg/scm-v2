@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
-const BatchForm = styled.div``;
+const BatchForm = styled.div`
+  width: 80%;
+  margin: 3rem auto;
+  text-align: center;
+`;
 
 const Find = () => {
   const router = useRouter();
