@@ -42,7 +42,7 @@ const RightNav = ({ open }) => {
       <Link href='/maltschool'>
         <a>LEARN</a>
       </Link>
-      <Link href='/'>
+      <Link href='/news'>
         <a>NEWS</a>
       </Link>
       <Link href='/'>

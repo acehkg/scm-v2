@@ -55,7 +55,7 @@ const Navbar = () => {
           <Link href='/maltschool'>
             <DesktopLink>LEARN</DesktopLink>
           </Link>
-          <Link href='/l'>
+          <Link href='/news'>
             <DesktopLink>NEWS</DesktopLink>
           </Link>
           <Link href='/'>
