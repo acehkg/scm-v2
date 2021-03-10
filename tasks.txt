@@ -1,42 +1,12 @@
-//write articles about the malting process and each analysis value as it pertains to brewing
-//accomplish basic design and color work in Adobe XD
-//create markdown files for each article
-//setup basic  Next JS package including styled components
-//initialize git repository and setup remote
-//create home page, about page, contact page
-//create malt school page
-//create pages for each article in malt school
+//create news page and contact page and ssg for news articles
+//create footer
+//picture of bags for malt display 
+//page transitions and animations
 //create value data entry page
-//write logic to convert entered analysis values to JSON object
-//create and link Fauana DB containig analysis values by batch
+//open branch and change navbar to switch sides and display logo on non-home page
 //write netlify function to write data to database
-//create analysis display page
-//write netlify function to display analysis by batch
 //setup customer and admin login and protected routes
 //create store pages, success and cancel pages
 //create cart and cart logic
 //setup stripe
 //setup payment processing function
-const url = '/api/getAllBatches';
-const Analysis = () => {
-  const [analysisData, setAnalysisData] = useState([]);
-
-  useEffect(() => {
-    const fetchAnalysis = async () => {
-      const response = await axios.get(url);
-      const batches = response.data;
-      setAnalysisData(batches);
-    };
-    fetchAnalysis();
-  }, []);
-  return analysisData.map((batch) => {
-    return (
-      <div>
-        <span>{batch.batch}</span>
-        <span>{batch.name}</span>
-        <span>{batch.analysis.friability}</span>
-        <span>{batch.analysis.moisture}</span>
-      </div>
-    );
-  });
-};
