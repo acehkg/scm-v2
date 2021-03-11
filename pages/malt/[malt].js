@@ -1,15 +1,29 @@
 import faunadb from 'faunadb';
+import styled from 'styled-components';
+import Image from 'next/image';
+import Link from 'next/link';
 import DataTable from '../../components/DataTable.js';
 
+const Container = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  height: 100vh;
+`;
+
+const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+`;
+const ImageContainer = styled.div`
+  width: 100%;
+`;
+
+const Title = styled.h2``;
 const Malt = ({ malt }) => {
   const formattedMalt = {
-    Batch: malt.batch,
-    Name: malt.name,
-    Grain: malt.grain,
-    Variety: malt.variety,
-    Grown: malt.grown,
-    Harvested: malt.harvested,
-    Malted: malt.malted,
     Plumps: malt.plumps,
     Thins: malt.thins,
     Moisture: malt.moisture,
@@ -30,7 +44,32 @@ const Malt = ({ malt }) => {
     pH: malt.ph,
   };
 
-  return <DataTable formattedData={formattedMalt} />;
+  return (
+    <>
+      <Container>
+        <ImageContainer>
+          <Image
+            src={`/images/products/${malt.batch}.png`}
+            alt={`${malt.name}`}
+            layout='responsive'
+            width={1024}
+            height={768}
+          />
+        </ImageContainer>
+
+        <InfoContainer>
+          <h3>{malt.name}</h3>
+          <h3>
+            {malt.variety} {malt.grain}
+          </h3>
+          <h3>{malt.grown}</h3>
+          <h3>{malt.harvested}</h3>
+          <h3>{malt.malted}</h3>
+        </InfoContainer>
+      </Container>
+      <DataTable formattedData={formattedMalt} />
+    </>
+  );
 };
 
 export const getStaticPaths = async () => {

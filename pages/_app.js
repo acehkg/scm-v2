@@ -6,7 +6,7 @@ const Container = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
   font-family: 'Poppins', sans-serif;
   height: 100vh;
-  color: #5c4e4e;
+  color: #4f1111;
   background: #fff;
 `;
 

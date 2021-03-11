@@ -12,7 +12,7 @@ const Container = styled.div`
 
 const BatchContainer = styled.div`
   width: 80%;
-  margin: 0 auto;
+  margin: 3rem auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   grid-gap: 2rem;
@@ -44,10 +44,6 @@ const SearchButton = styled(UnstyledLink)`
 const Analysis = ({ batches }) => {
   return (
     <Container>
-      <Link href='/malt/find'>
-        <SearchButton>SEARCH BY BATCH #</SearchButton>
-      </Link>
-
       <BatchContainer>
         {batches.map((b) => {
           return <BatchCard key={b.id} batch={b} />;

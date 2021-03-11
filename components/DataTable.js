@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const Table = styled.div`
   width: 80%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-gap: 1rem;
   margin: 2rem auto;
   @media (max-width: 768px) {
     margin-top: 15vh;
@@ -17,7 +17,9 @@ const Cell = styled.div`
   border: 1px #09344f solid;
   border-radius: 5%;
 `;
-const Labels = styled.h3``;
+const Labels = styled.h3`
+  font-size: 1rem;
+`;
 const Values = styled.p``;
 
 const DataTable = ({ formattedData }) => {
