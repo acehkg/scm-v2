@@ -10,8 +10,8 @@ const Toggle = styled.button`
   font-size: 1rem;
   line-height: 2.6rem;
   text-align: center;
-  color: #fff;
-  background-color: #4f1111;
+  color: ${(props) => props.theme.whiteColour};
+  background-color: ${(props) => props.theme.redColour}; ;
 `;
 const ToggleSpecs = ({ data }) => {
   const [open, setOpen] = useState(false);

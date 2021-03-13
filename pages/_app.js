@@ -1,12 +1,17 @@
 import Navbar from '../components/Navbar';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { Normalize } from 'styled-normalize';
 
-const Container = styled.div`
+const theme = {
+  redColour: '#4f1111',
+  blueColour: '#09344f',
+  whiteColour: '#ffffff',
+  greyColour: 'rgba(31, 7, 7, 0.1)',
+};
+
+const GlobalContainer = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
   font-family: 'Poppins', sans-serif;
-  height: 100vh;
-  color: #4f1111;
   background: #fff;
 `;
 
@@ -14,10 +19,12 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <>
       <Normalize />
-      <Container>
-        <Navbar />
-        <Component {...pageProps} />
-      </Container>
+      <GlobalContainer>
+        <ThemeProvider theme={theme}>
+          <Navbar />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </GlobalContainer>
     </>
   );
 };

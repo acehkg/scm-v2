@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
-import { UnstyledLink } from '../components/styles/globalStyles';
+import { UnstyledLink } from '../styles/globalStyles';
 
 const Batch = styled.div`
   justify-self: center;
   max-height: 30rem;
   width: clamp(280px, 80vw, 22rem);
   text-align: center;
-  color: #4f1111;
+  color: ${(props) => props.theme.redColour};
   // border: #09344f 1px solid;
   border-radius: 5%;
   @media (max-width: 768px) {
@@ -26,8 +26,8 @@ const BatchLink = styled(UnstyledLink)`
   font-size: 1rem;
   line-height: 2.6rem;
   text-align: center;
-  color: #fff;
-  background-color: #4f1111;
+  color: ${(props) => props.theme.whiteColour};
+  background-color: ${(props) => props.theme.redColour};
   //border-radius: 1rem;
 `;
 

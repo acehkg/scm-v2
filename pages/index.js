@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
-import { UnstyledLink } from '../components/styles/globalStyles';
+import { UnstyledLink } from '../styles/globalStyles';
 
 const Content = styled.div`
   height: 88vh;
@@ -29,7 +29,7 @@ const TextContainer = styled.div`
   }
 `;
 const Title = styled.h1`
-  color: #4f1111;
+  color: ${(props) => props.theme.redColour};
   margin-left: 3rem;
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 700;
@@ -57,8 +57,8 @@ const OurMalt = styled(UnstyledLink)`
   font-size: clamp(1rem, 2vw, 1.5rem);
   line-height: 3.2rem;
   text-align: center;
-  color: #fff;
-  background-color: #09344f;
+  color: ${(props) => props.theme.whiteColour};
+  background-color: ${(props) => props.theme.blueColour};
   border-radius: 3rem;
   @media (max-width: 1024px) {
     width: 80%;

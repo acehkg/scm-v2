@@ -2,7 +2,7 @@ import faunadb from 'faunadb';
 import Link from 'next/link';
 import styled from 'styled-components';
 import BatchCard from '../components/BatchCard';
-import { UnstyledLink } from '../components/styles/globalStyles';
+import { UnstyledLink } from '../styles/globalStyles';
 
 const Container = styled.div`
   @media (max-width: 768px) {

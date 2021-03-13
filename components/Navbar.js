@@ -1,22 +1,20 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styled from 'styled-components';
 import Burger from './Burger';
 
-const NavContainer = styled.nav`
+const NavBar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 12vh;
-  @media (max-width: 1024px) {
-    width: 80%;
-    margin: 0 auto;
-  }
-  @media (max-width: 768px) {
-    display: none;
-  }
+  min-height: 15vh;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
 `;
 
-const LinkContainer = styled.div`
+const Links = styled.div`
   width: 50%;
   display: flex;
   justify-content: space-evenly;
@@ -32,7 +30,7 @@ const LinkContainer = styled.div`
 
 const DesktopLink = styled.a`
   text-decoration: none;
-  color: #4f1111;
+  color: ${(props) => props.theme.redColour};
   transition: all ease-in-out 250ms;
 
   &:hover {
@@ -41,11 +39,27 @@ const DesktopLink = styled.a`
   }
 `;
 
+const Logo = styled.div`
+  width: 10rem;
+
+  @media (max-width: 400px) {
+    width: 8rem;
+  }
+`;
 const Navbar = () => {
   return (
     <>
-      <NavContainer>
-        <LinkContainer>
+      <NavBar>
+        <Logo>
+          <Image
+            src='/images/logored.png'
+            alt='Simcoe County Malt'
+            layout='responsive'
+            width={402}
+            height={322}
+          />
+        </Logo>
+        <Links>
           <Link href='/'>
             <DesktopLink>HOME</DesktopLink>
           </Link>
@@ -61,8 +75,8 @@ const Navbar = () => {
           <Link href='/'>
             <DesktopLink>CONTACT</DesktopLink>
           </Link>
-        </LinkContainer>
-      </NavContainer>
+        </Links>
+      </NavBar>
 
       <Burger />
     </>

@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 export const UnstyledLink = styled.a`
   text-decoration: none;
-  color: inherit;
 
   &:hover {
     cursor: pointer;

@@ -12,9 +12,9 @@ const Table = styled.div`
 `;
 
 const Cell = styled.div`
-  color: #4f1111;
+  color: ${(props) => props.theme.redColour};
   text-align: center;
-  border: 1px #09344f solid;
+  border: 1px ${(props) => props.theme.blueColour} solid;
   border-radius: 5%;
 `;
 const Labels = styled.h3`

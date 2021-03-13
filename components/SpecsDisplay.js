@@ -10,7 +10,7 @@ const Slider = styled.div`
   justify-content: space-evenly;
   align-items: center;
   flex-flow: column nowrap;
-  background: #fff;
+  background: ${(props) => props.theme.whiteColour};
   //background: rgba(0, 0, 0, 0.2);
   //backdrop-filter: blur(40px);
   border-radius: 1rem;

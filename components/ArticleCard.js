@@ -7,7 +7,7 @@ const Card = styled.div`
   padding: 1rem;
   height: 25rem;
   position: relative;
-  background: rgba(31, 7, 7, 0.1);
+  background: ${(props) => props.theme.greyColour};
 `;
 
 const TextBlock = styled.div`
@@ -29,8 +29,8 @@ const ArticleLink = styled.a`
   font-size: 1rem;
   line-height: 2.6rem;
   text-align: center;
-  color: #fff;
-  background-color: #4f1111;
+  color: ${(props) => props.theme.whiteColour};
+  background-color: ${(props) => props.theme.redColour};
 
   &:hover {
     cursor: pointer;

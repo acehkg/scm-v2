@@ -3,7 +3,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import styled from 'styled-components';
 import ArticleCard from '../components/ArticleCard';
-import { PageContainer } from '../components/styles/globalStyles';
+import { PageContainer } from '../styles/globalStyles';
 
 const News = ({ articles }) => {
   return (
