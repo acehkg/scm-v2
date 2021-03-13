@@ -1,13 +1,12 @@
 import faunadb from 'faunadb';
 import styled from 'styled-components';
 import Image from 'next/image';
-import Link from 'next/link';
-import DataTable from '../../components/DataTable.js';
+import ToggleSpecs from '../../components/ToggleSpecs';
 
 const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
-  height: 100vh;
+  height: 90vh;
 `;
 
 const InfoContainer = styled.div`
@@ -21,7 +20,10 @@ const ImageContainer = styled.div`
   width: 100%;
 `;
 
-const Title = styled.h2``;
+const Title = styled.h2`
+  font-size: 1.5rem;
+  font-weight: 400;
+`;
 const Malt = ({ malt }) => {
   const formattedMalt = {
     Plumps: malt.plumps,
@@ -58,16 +60,17 @@ const Malt = ({ malt }) => {
         </ImageContainer>
 
         <InfoContainer>
-          <h3>{malt.name}</h3>
-          <h3>
-            {malt.variety} {malt.grain}
-          </h3>
-          <h3>{malt.grown}</h3>
-          <h3>{malt.harvested}</h3>
-          <h3>{malt.malted}</h3>
+          <Title>{malt.name}</Title>
+          <Title>
+            Grain: {malt.variety} {malt.grain}
+          </Title>
+          <Title>Grown: {malt.grown}</Title>
+          <Title>Harvested: {malt.harvested}</Title>
+          <Title>Malted: {malt.malted}</Title>
+          <Title>${malt.price / 100} 25kg Bag</Title>
+          <ToggleSpecs data={formattedMalt} />
         </InfoContainer>
       </Container>
-      <DataTable formattedData={formattedMalt} />
     </>
   );
 };

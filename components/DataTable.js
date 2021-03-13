@@ -22,14 +22,14 @@ const Labels = styled.h3`
 `;
 const Values = styled.p``;
 
-const DataTable = ({ formattedData }) => {
-  const cards = Object.entries(formattedData);
+const DataTable = ({ data }) => {
+  const cards = Object.entries(data);
 
   return (
     <Table>
       {cards.map((card) => {
         return (
-          <Cell>
+          <Cell key={card[0]}>
             <Labels>{card[0]}</Labels>
             <Values>{card[1]}</Values>
           </Cell>

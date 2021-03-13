@@ -2,33 +2,14 @@ import Link from 'next/link';
 import fs from 'fs';
 import matter from 'gray-matter';
 import styled from 'styled-components';
+import ArticleCard from '../components/ArticleCard';
 import { PageContainer } from '../components/styles/globalStyles';
 
-const ArticleLink = styled.div`
-  display: flex;
-  margin-top: 1rem;
-  h3 {
-    margin-right: 2rem;
-  }
-  &:hover {
-    cursor: pointer;
-  }
-`;
 const Maltschool = ({ articles }) => {
   return (
     <PageContainer>
       {articles.map((article) => {
-        return (
-          <Link key={article.id} href={article.slug}>
-            <div>
-              <ArticleLink>
-                <h3>{article.title}</h3>
-                <h3>Published on: {article.date}</h3>
-              </ArticleLink>
-              <p>{article.description}</p>
-            </div>
-          </Link>
-        );
+        return <ArticleCard key={article.id} article={article} />;
       })}
     </PageContainer>
   );
