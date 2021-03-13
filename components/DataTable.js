@@ -12,7 +12,7 @@ const Table = styled.div`
 `;
 
 const Cell = styled.div`
-  color: ${(props) => props.theme.redColour};
+  color: ${(props) => props.theme.textColour};
   text-align: center;
   border: 1px ${(props) => props.theme.blueColour} solid;
   border-radius: 5%;

@@ -23,7 +23,7 @@ const ImageContainer = styled.div`
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: 400;
-  color: ${(props) => props.theme.redColour};
+  color: ${(props) => props.theme.textColour};
 `;
 const Malt = ({ malt }) => {
   const formattedMalt = {

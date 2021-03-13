@@ -30,7 +30,7 @@ const Links = styled.div`
 
 const DesktopLink = styled.a`
   text-decoration: none;
-  color: ${(props) => props.theme.redColour};
+  color: ${(props) => props.theme.textColour};
   transition: all ease-in-out 250ms;
 
   &:hover {

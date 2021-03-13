@@ -7,6 +7,7 @@ const theme = {
   blueColour: '#09344f',
   whiteColour: '#ffffff',
   greyColour: 'rgba(31, 7, 7, 0.1)',
+  textColour: 'black',
 };
 
 const GlobalContainer = styled.div`

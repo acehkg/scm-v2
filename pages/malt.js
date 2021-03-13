@@ -32,8 +32,8 @@ const SearchButton = styled(UnstyledLink)`
   font-size: clamp(1rem, 2vw, 1.5rem);
   line-height: 3.2rem;
   text-align: center;
-  color: #fff;
-  background-color: #09344f;
+  color: ${(props) => props.theme.whiteColour};
+  background-color: ${(props) => props.theme.blueColour};
   border-radius: 3rem;
 
   @media (max-width: 700px) {

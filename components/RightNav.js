@@ -24,7 +24,7 @@ const MobileLinks = styled.div`
     transition: transform 0.3s ease-in-out;
     z-index: 15;
     a {
-      color: #4f1111;
+      color: ${(props) => props.theme.textColour};
       text-decoration: none;
     }
   }

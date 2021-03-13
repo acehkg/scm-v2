@@ -17,7 +17,7 @@ const Slider = styled.div`
   //background-clip: padding-box;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 15px;
   position: fixed;
-  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
+  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-110%)')};
   //height: 100vh;
   width: 50%;
   transition: transform 0.3s ease-in-out;

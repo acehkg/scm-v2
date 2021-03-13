@@ -4,9 +4,7 @@ import marked from 'marked';
 const Container = styled.div`
   width: 60%;
   margin: 3rem auto;
-  @media (max-width: 768px) {
-    margin-top: 15vh;
-  }
+  color: ${(props) => props.theme.textColour};
 `;
 
 const Article = ({ content, data }) => {
