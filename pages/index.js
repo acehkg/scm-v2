@@ -7,7 +7,7 @@ const Content = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 80vh;
+  height: 100vh;
 `;
 const TextContainer = styled.div`
   width: 50%;
@@ -17,10 +17,14 @@ const TextContainer = styled.div`
     margin: 0;
     text-align: center;
     position: absolute;
-    bottom: 3rem;
+    bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 15;
+  }
+
+  @media (max-width: 420px) {
+    bottom: 10%;
   }
 `;
 const Title = styled.h1`
@@ -47,7 +51,7 @@ const OurMalt = styled(UnstyledLink)`
   color: ${(props) => props.theme.whiteColour};
   background-color: ${(props) => props.theme.blueColour};
   border-radius: 3rem;
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     width: 80%;
     margin: 0 auto;
     text-align: center;
@@ -62,15 +66,34 @@ const LandingImage = styled.div`
   width: 50%;
 
   @media (max-width: 1023px) {
-    width: 70vw;
     position: absolute;
     top: 0;
     right: 0;
   }
+  @media (max-width: 834px) {
+    width: 80%;
+  }
+
+  @media (max-width: 420px) {
+    width: 100%;
+  }
+`;
+
+const LandingImageFlip = styled.div`
+  display: none;
 `;
 const Home = () => {
   return (
     <Content>
+      <LandingImageFlip>
+        <Image
+          src='/images/barley-flip.png'
+          alt='Barley'
+          layout='responsive'
+          width={700}
+          height={629}
+        />
+      </LandingImageFlip>
       <TextContainer>
         <Title>ONTARIO GRAIN. ONTARIO MALT.</Title>
         <Motto>

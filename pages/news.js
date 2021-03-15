@@ -1,17 +1,28 @@
-import Link from 'next/link';
 import fs from 'fs';
 import matter from 'gray-matter';
 import styled from 'styled-components';
 import ArticleCard from '../components/ArticleCard';
-import { PageContainer } from '../styles/globalStyles';
+
+const Container = styled.div`
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 auto;
+
+  @media (max-width: 834px) {
+    width: 90%;
+    flex-direction: column;
+  }
+`;
 
 const News = ({ articles }) => {
   return (
-    <PageContainer>
+    <Container>
       {articles.map((article) => {
         return <ArticleCard key={article.id} article={article} />;
       })}
-    </PageContainer>
+    </Container>
   );
 };
 export const getStaticProps = async () => {

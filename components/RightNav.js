@@ -4,7 +4,7 @@ import Link from 'next/link';
 const MobileLinks = styled.div`
   display: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 834px) {
     margin: 0;
     display: flex;
     justify-content: space-evenly;
@@ -27,6 +27,9 @@ const MobileLinks = styled.div`
       color: ${(props) => props.theme.textColour};
       text-decoration: none;
     }
+  }
+  @media (max-width: 420px) {
+    width: 100%;
   }
 `;
 

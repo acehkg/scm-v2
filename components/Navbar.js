@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
-import Burger from './Burger';
+//import Burger from './Burger';
 
 const NavBar = styled.nav`
   display: flex;
@@ -23,7 +23,7 @@ const Links = styled.div`
   @media (max-width: 1024px) {
     width: 100%;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 834px) {
     display: none;
   }
 `;
@@ -77,8 +77,6 @@ const Navbar = () => {
           </Link>
         </Links>
       </NavBar>
-
-      <Burger />
     </>
   );
 };

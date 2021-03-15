@@ -3,11 +3,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const Card = styled.div`
+  margin: 2rem;
   width: 40%;
   padding: 1rem;
-  height: 25rem;
+  min-height: 30rem;
   position: relative;
   background: ${(props) => props.theme.greyColour};
+
+  @media (max-width: 834px) {
+    width: 70%;
+  }
+
+  @media (max-width: 420px) {
+    min-height: 26rem;
+  }
 `;
 
 const TextBlock = styled.div`
@@ -23,8 +32,12 @@ const Description = styled.p``;
 
 const ArticleLink = styled.a`
   display: block;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   width: 60%;
-  margin: 1rem auto;
+  //margin: 1rem auto;
   height: 2.5rem;
   font-size: 1rem;
   line-height: 2.6rem;

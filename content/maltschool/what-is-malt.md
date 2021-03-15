@@ -1,7 +1,7 @@
 ---
 id: 001
 title: What Is Malt?
-description: An explanation of what malted grains are and their uses
+description: An explanation of what malted grains are and their uses.
 date: 11/03/2021
 author: Andrew Embury
 ---

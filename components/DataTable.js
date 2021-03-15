@@ -6,9 +6,6 @@ const Table = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   grid-gap: 1rem;
   margin: 2rem auto;
-  @media (max-width: 768px) {
-    margin-top: 15vh;
-  }
 `;
 
 const Cell = styled.div`

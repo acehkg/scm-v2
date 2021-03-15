@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar';
 import styled, { ThemeProvider } from 'styled-components';
 import { Normalize } from 'styled-normalize';
+import Burger from '../components/Burger';
 
 const theme = {
   redColour: '#4f1111',
@@ -23,6 +24,7 @@ const MyApp = ({ Component, pageProps }) => {
       <GlobalContainer>
         <ThemeProvider theme={theme}>
           <Navbar />
+          <Burger />
           <Component {...pageProps} />
         </ThemeProvider>
       </GlobalContainer>
