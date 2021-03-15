@@ -7,34 +7,29 @@ const Content = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  height: 100vh;
+  //height: 100vh;
 
-  @media (orientation: landscape) {
-    height: unset;
-    flex-direction: column;
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
   }
 `;
 const TextContainer = styled.div`
   width: 50%;
   margin-left: 3rem;
 
-  @media (max-width: 1023px) {
-    margin: 0;
+  @media (max-width: 1024px) {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 1rem 0;
     text-align: center;
-    position: absolute;
-    bottom: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 15;
-  }
-
-  @media (max-width: 420px) {
-    bottom: 10%;
-  }
-  @media (orientation: landscape) {
-    position: relative;
   }
 `;
+
+const TitleContainer = styled.div``;
 const Title = styled.h1`
   color: ${(props) => props.theme.textColour};
   font-size: clamp(1.5rem, 3vw, 2.5rem);
@@ -44,9 +39,7 @@ const Title = styled.h1`
 const Motto = styled.p`
   color: ${(props) => props.theme.textColour};
   font-size: clamp(1.25rem, 2vw, 1.5rem);
-  @media (max-width: 370px) {
-    display: none;
-  }
+  line-height: 1.5;
 `;
 
 const OurMalt = styled(UnstyledLink)`
@@ -59,30 +52,15 @@ const OurMalt = styled(UnstyledLink)`
   color: ${(props) => props.theme.whiteColour};
   background-color: ${(props) => props.theme.blueColour};
   border-radius: 3rem;
-  @media (max-width: 1023px) {
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
-  }
-  @media (max-width: 420px) {
+
+  @media (max-width: 1024px) {
     width: 100%;
-    margin: 0;
-    text-align: center;
   }
 `;
 const LandingImage = styled.div`
   width: 50%;
 
-  @media (max-width: 1023px) {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-  @media (max-width: 834px) {
-    width: 80%;
-  }
-
-  @media (max-width: 420px) {
+  @media (max-width: 1024px) {
     width: 100%;
   }
 `;
@@ -91,7 +69,10 @@ const Home = () => {
   return (
     <Content>
       <TextContainer>
-        <Title>ONTARIO GRAIN. ONTARIO MALT.</Title>
+        <TitleContainer>
+          <Title>ONTARIO GRAIN.</Title>
+          <Title>ONTARIO MALT.</Title>
+        </TitleContainer>
         <Motto>
           Locally grown then crafted with care. Better ingredients make better
           beer.
