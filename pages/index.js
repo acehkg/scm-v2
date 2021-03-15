@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { UnstyledLink } from '../styles/globalStyles';
 
 const Content = styled.div`
-  position: relative;
+  height: 85vh;
   display: flex;
   align-items: center;
 
@@ -23,7 +23,7 @@ const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 1rem 0;
+    margin: 0 auto;
     text-align: center;
   }
 `;
@@ -31,13 +31,13 @@ const TextContainer = styled.div`
 const TitleContainer = styled.div``;
 const Title = styled.h1`
   color: ${(props) => props.theme.textColour};
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 700;
 `;
 
 const Motto = styled.p`
   color: ${(props) => props.theme.textColour};
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   line-height: 1.5;
 `;
 
@@ -55,11 +55,19 @@ const OurMalt = styled(UnstyledLink)`
   @media (max-width: 1024px) {
     width: 100%;
   }
+
+  @media (max-width: 420px) {
+    margin-bottom: 1rem;
+  }
 `;
 const LandingImage = styled.div`
   width: 50%;
 
   @media (max-width: 1024px) {
+    width: 80%;
+  }
+
+  @media (max-width: 420px) {
     width: 100%;
   }
 `;
@@ -82,7 +90,7 @@ const Home = () => {
       </TextContainer>
       <LandingImage>
         <Image
-          src='/images/barley.png'
+          src='/images/barley-768.png'
           alt='Barley'
           layout='responsive'
           width={768}
