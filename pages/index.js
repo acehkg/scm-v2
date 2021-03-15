@@ -8,6 +8,11 @@ const Content = styled.div`
   display: flex;
   align-items: center;
   height: 100vh;
+
+  @media (orientation: landscape) {
+    height: unset;
+    flex-direction: column;
+  }
 `;
 const TextContainer = styled.div`
   width: 50%;
@@ -25,6 +30,9 @@ const TextContainer = styled.div`
 
   @media (max-width: 420px) {
     bottom: 10%;
+  }
+  @media (orientation: landscape) {
+    position: relative;
   }
 `;
 const Title = styled.h1`
@@ -79,21 +87,9 @@ const LandingImage = styled.div`
   }
 `;
 
-const LandingImageFlip = styled.div`
-  display: none;
-`;
 const Home = () => {
   return (
     <Content>
-      <LandingImageFlip>
-        <Image
-          src='/images/barley-flip.png'
-          alt='Barley'
-          layout='responsive'
-          width={700}
-          height={629}
-        />
-      </LandingImageFlip>
       <TextContainer>
         <Title>ONTARIO GRAIN. ONTARIO MALT.</Title>
         <Motto>
@@ -109,8 +105,8 @@ const Home = () => {
           src='/images/barley.png'
           alt='Barley'
           layout='responsive'
-          width={700}
-          height={629}
+          width={768}
+          height={569}
         />
       </LandingImage>
     </Content>
