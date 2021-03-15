@@ -7,7 +7,6 @@ const Content = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  //height: 100vh;
 
   @media (max-width: 1024px) {
     flex-direction: column-reverse;
