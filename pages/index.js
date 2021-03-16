@@ -2,8 +2,10 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import { UnstyledLink } from '../styles/globalStyles';
+import { motion } from 'framer-motion';
+import { fadeInDown, fadeInUp, stagger } from '../animations/Animations';
 
-const Content = styled.div`
+const Content = styled(motion.div)`
   height: 85vh;
   display: flex;
   align-items: center;
@@ -13,7 +15,7 @@ const Content = styled.div`
     justify-content: space-evenly;
   }
 `;
-const TextContainer = styled.div`
+const TextContainer = styled(motion.div)`
   width: 50%;
   margin-left: 3rem;
 
@@ -28,14 +30,14 @@ const TextContainer = styled.div`
   }
 `;
 
-const TitleContainer = styled.div``;
+const TitleContainer = styled(motion.div)``;
 const Title = styled.h1`
   color: ${(props) => props.theme.textColour};
   font-size: clamp(1.5rem, 3vw, 3rem);
   font-weight: 700;
 `;
 
-const Motto = styled.p`
+const Motto = styled(motion.p)`
   color: ${(props) => props.theme.textColour};
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   line-height: 1.5;
@@ -60,7 +62,7 @@ const OurMalt = styled(UnstyledLink)`
     margin-bottom: 1rem;
   }
 `;
-const LandingImage = styled.div`
+const LandingImage = styled(motion.div)`
   width: 50%;
 
   @media (max-width: 1024px) {
@@ -74,23 +76,25 @@ const LandingImage = styled.div`
 
 const Home = () => {
   return (
-    <Content>
-      <TextContainer>
-        <TitleContainer>
+    <Content exit={{ opacity: 0 }} initial='initial' animate='animate'>
+      <TextContainer variants={stagger}>
+        <TitleContainer variants={fadeInDown}>
           <Title>ONTARIO GRAIN.</Title>
           <Title>ONTARIO MALT.</Title>
         </TitleContainer>
-        <Motto>
+        <Motto variants={fadeInDown}>
           Locally grown then crafted with care. Better ingredients make better
           beer.
         </Motto>
-        <Link href='/malt'>
-          <OurMalt>SEE OUR MALT</OurMalt>
-        </Link>
+        <motion.div variants={fadeInDown}>
+          <Link href='/malt'>
+            <OurMalt>SEE OUR MALT</OurMalt>
+          </Link>
+        </motion.div>
       </TextContainer>
-      <LandingImage>
+      <LandingImage variants={fadeInUp}>
         <Image
-          src='/images/barley-1000.png'
+          src='/images/barley-768-2.png'
           alt='Barley'
           layout='responsive'
           width={768}

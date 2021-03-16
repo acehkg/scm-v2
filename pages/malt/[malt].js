@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import { UnstyledLink } from '../../styles/globalStyles';
+import { motion } from 'framer-motion';
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 80%;
   margin: 0 auto;
   display: flex;
@@ -46,33 +47,31 @@ const Analysis = styled(UnstyledLink)`
 `;
 const Malt = ({ malt, analysisSlug }) => {
   return (
-    <>
-      <Container>
-        <ImageContainer>
-          <Image
-            src={`/images/products/${malt.batch}.png`}
-            alt={`${malt.name}`}
-            layout='responsive'
-            width={1024}
-            height={768}
-          />
-        </ImageContainer>
+    <Container exit={{ opacity: 0 }}>
+      <ImageContainer>
+        <Image
+          src={`/images/products/${malt.batch}.png`}
+          alt={`${malt.name}`}
+          layout='responsive'
+          width={1024}
+          height={768}
+        />
+      </ImageContainer>
 
-        <InfoContainer>
-          <Title>{malt.name}</Title>
-          <Title>
-            {malt.variety} {malt.grain}
-          </Title>
-          <Title>{malt.grown}</Title>
-          <Title>Harvested {malt.harvested}</Title>
-          <Title>Malted {malt.malted}</Title>
-          <Title>${malt.price / 100} 25kg Bag</Title>
-          <Link href={analysisSlug}>
-            <Analysis>SEE ANALYSIS</Analysis>
-          </Link>
-        </InfoContainer>
-      </Container>
-    </>
+      <InfoContainer>
+        <Title>{malt.name}</Title>
+        <Title>
+          {malt.variety} {malt.grain}
+        </Title>
+        <Title>{malt.grown}</Title>
+        <Title>Harvested {malt.harvested}</Title>
+        <Title>Malted {malt.malted}</Title>
+        <Title>${malt.price / 100} 25kg Bag</Title>
+        <Link href={analysisSlug}>
+          <Analysis>SEE ANALYSIS</Analysis>
+        </Link>
+      </InfoContainer>
+    </Container>
   );
 };
 

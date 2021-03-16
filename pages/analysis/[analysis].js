@@ -2,8 +2,9 @@ import faunadb from 'faunadb';
 import Link from 'next/link';
 import styled from 'styled-components';
 import DataTable from '../../components/DataTable';
+import { motion } from 'framer-motion';
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
 `;
@@ -51,7 +52,7 @@ const Analysis = ({ malt, slug }) => {
   };
 
   return (
-    <Container>
+    <Container exit={{ opacity: 0 }}>
       <Link href={slug}>
         <Back>BACK</Back>
       </Link>

@@ -1,8 +1,9 @@
 import faunadb from 'faunadb';
 import styled from 'styled-components';
 import BatchCard from '../components/BatchCard';
+import { motion } from 'framer-motion';
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 80%;
   margin: 3rem auto;
   display: grid;
@@ -18,7 +19,7 @@ const Container = styled.div`
 
 const Analysis = ({ batches }) => {
   return (
-    <Container>
+    <Container exit={{ opacity: 0 }}>
       {batches.map((b) => {
         return <BatchCard key={b.id} batch={b} />;
       })}

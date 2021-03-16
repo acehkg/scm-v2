@@ -2,8 +2,9 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import styled from 'styled-components';
 import ArticleCard from '../components/ArticleCard';
+import { motion } from 'framer-motion';
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 80%;
   display: flex;
   align-items: center;
@@ -18,7 +19,7 @@ const Container = styled.div`
 
 const Maltschool = ({ articles }) => {
   return (
-    <Container>
+    <Container exit={{ opacity: 0 }}>
       {articles.map((article) => {
         return <ArticleCard key={article.id} article={article} />;
       })}
