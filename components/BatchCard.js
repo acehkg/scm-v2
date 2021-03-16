@@ -9,7 +9,6 @@ const Batch = styled.div`
   width: clamp(280px, 80vw, 22rem);
   text-align: center;
   color: ${(props) => props.theme.textColour};
-  // border: #09344f 1px solid;
   border-radius: 5%;
   @media (max-width: 834px) {
     margin-bottom: 2rem;

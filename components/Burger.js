@@ -1,5 +1,3 @@
-//import { useContext } from 'react';
-//import { MenuContext } from '../context/MenuContext';
 import useNav from '../hooks/useNav';
 import styled from 'styled-components';
 import RightNav from './RightNav';

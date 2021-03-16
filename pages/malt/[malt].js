@@ -1,12 +1,18 @@
 import faunadb from 'faunadb';
 import styled from 'styled-components';
 import Image from 'next/image';
-import ToggleSpecs from '../../components/ToggleSpecs';
+import Link from 'next/link';
+import { UnstyledLink } from '../../styles/globalStyles';
 
 const Container = styled.div`
+  width: 80%;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-evenly;
-  height: 90vh;
+  flex-direction: column;
+
+  @media (min-width: 1023px) {
+    flex-direction: row;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -21,32 +27,24 @@ const ImageContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 1.5rem;
+  margin: 1rem 0;
+  font-size: 1.25rem;
   font-weight: 400;
   color: ${(props) => props.theme.textColour};
 `;
-const Malt = ({ malt }) => {
-  const formattedMalt = {
-    Plumps: malt.plumps,
-    Thins: malt.thins,
-    Moisture: malt.moisture,
-    Friability: malt.friability,
-    FineExtract: malt.fine,
-    CoarseExtract: malt.coarse,
-    FCDifference: malt.fcDiff,
-    Color: malt.color,
-    BetaGlucan: malt.betaGlucan,
-    TotalProtein: malt.totalProtein,
-    SolubleProtein: malt.solubleProtein,
-    STRatio: malt.stRatio,
-    FAN: malt.fan,
-    DiastaticPower: malt.diastaticPower,
-    AlphaAmaylase: malt.alphaAmaylase,
-    Filtration: malt.filtration,
-    Turbidity: malt.turbidity,
-    pH: malt.ph,
-  };
 
+const Analysis = styled(UnstyledLink)`
+  display: block;
+  width: 60%;
+  margin: 1rem auto;
+  height: 2.5rem;
+  font-size: 1rem;
+  line-height: 2.6rem;
+  text-align: center;
+  color: ${(props) => props.theme.whiteColour};
+  background-color: ${(props) => props.theme.redColour};
+`;
+const Malt = ({ malt, analysisSlug }) => {
   return (
     <>
       <Container>
@@ -63,13 +61,15 @@ const Malt = ({ malt }) => {
         <InfoContainer>
           <Title>{malt.name}</Title>
           <Title>
-            Grain: {malt.variety} {malt.grain}
+            {malt.variety} {malt.grain}
           </Title>
-          <Title>Grown: {malt.grown}</Title>
-          <Title>Harvested: {malt.harvested}</Title>
-          <Title>Malted: {malt.malted}</Title>
+          <Title>{malt.grown}</Title>
+          <Title>Harvested {malt.harvested}</Title>
+          <Title>Malted {malt.malted}</Title>
           <Title>${malt.price / 100} 25kg Bag</Title>
-          <ToggleSpecs data={formattedMalt} />
+          <Link href={analysisSlug}>
+            <Analysis>SEE ANALYSIS</Analysis>
+          </Link>
         </InfoContainer>
       </Container>
     </>
@@ -113,17 +113,15 @@ export const getStaticProps = async (context) => {
   );
   const batchNumber = context.params.malt;
   const batchTarget = data.filter((b) => b.data.batch === batchNumber);
-
+  const analysisSlug = `/analysis/${batchTarget[0].data.batch}`;
   const malt = {
     ...batchTarget[0].data,
     ...batchTarget[0].data.analysis,
-    //name: batchTarget[0].data.name,
-    //batch: batchTarget[0].data.batch,
-    //analysis: batchTarget[0].data.analysis,
   };
   return {
     props: {
       malt,
+      analysisSlug,
     },
   };
 };

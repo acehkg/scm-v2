@@ -39,6 +39,7 @@ export const getStaticProps = async () => {
   );
   const batches = data.map((batch) => {
     const slug = `/malt/${batch.data.batch}`;
+
     const malt = {
       ...batch.data,
       slug,
