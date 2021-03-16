@@ -90,7 +90,7 @@ const Home = () => {
       </TextContainer>
       <LandingImage>
         <Image
-          src='/images/barley-768.png'
+          src='/images/barley-1000.png'
           alt='Barley'
           layout='responsive'
           width={768}
