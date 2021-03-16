@@ -1,6 +1,8 @@
+//import { useContext } from 'react';
+//import { MenuContext } from '../context/MenuContext';
+import useNav from '../hooks/useNav';
 import styled from 'styled-components';
 import RightNav from './RightNav';
-import { useState } from 'react';
 
 const StyledBurger = styled.div`
   position: absolute;
@@ -25,7 +27,8 @@ const StyledBurger = styled.div`
     background-color: ${({ open }) => (open ? '#4f1111' : '#5c4e4e')};
     border-radius: 10px;
     transform-origin: 1px;
-    transition: all 0.3s linear;
+    transition: ${({ open }) => (open ? 'all 0.3s linear' : 'all 0.2s linear')};
+
     &:nth-child(1) {
       transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
     }
@@ -40,7 +43,7 @@ const StyledBurger = styled.div`
 `;
 
 const Burger = () => {
-  const [open, setOpen] = useState(false);
+  const { open, setOpen } = useNav();
 
   return (
     <>
@@ -49,7 +52,7 @@ const Burger = () => {
         <div />
         <div />
       </StyledBurger>
-      <RightNav open={open} />
+      <RightNav open={open} setOpen={setOpen} />
     </>
   );
 };

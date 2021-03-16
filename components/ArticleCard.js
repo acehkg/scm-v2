@@ -9,7 +9,7 @@ const Card = styled.div`
   min-height: 30rem;
   position: relative;
   background: ${(props) => props.theme.greyColour};
-
+  color: ${(props) => props.theme.textColour};
   @media (max-width: 834px) {
     width: 70%;
   }

@@ -13,3 +13,11 @@ export const PageContainer = styled.div`
   width: 80%;
   margin: 0 auto;
 `;
+
+export const theme = {
+  redColour: '#4f1111',
+  blueColour: '#09344f',
+  whiteColour: '#ffffff',
+  greyColour: 'rgba(31, 7, 7, 0.1)',
+  textColour: '#4f1111',
+};

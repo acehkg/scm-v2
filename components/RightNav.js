@@ -21,7 +21,9 @@ const MobileLinks = styled.div`
     right: 0;
     height: 100vh;
     width: 50%;
-    transition: transform 0.3s ease-in-out;
+    transition: ${({ open }) =>
+      open ? 'transform 0.3s ease-in-out' : 'transform 0.2s ease-in-out'};
+
     z-index: 16;
     a {
       color: ${(props) => props.theme.textColour};
@@ -33,23 +35,23 @@ const MobileLinks = styled.div`
   }
 `;
 
-const RightNav = ({ open }) => {
+const RightNav = ({ open, setOpen }) => {
   return (
     <MobileLinks open={open}>
       <Link href='/'>
-        <a>HOME</a>
+        <a onClick={() => setOpen(!open)}>HOME</a>
       </Link>
       <Link href='/malt'>
-        <a>OUR MALT</a>
+        <a onClick={() => setOpen(!open)}>OUR MALT</a>
       </Link>
       <Link href='/maltschool'>
-        <a>LEARN</a>
+        <a onClick={() => setOpen(!open)}>LEARN</a>
       </Link>
       <Link href='/news'>
-        <a>NEWS</a>
+        <a onClick={() => setOpen(!open)}>NEWS</a>
       </Link>
       <Link href='/'>
-        <a>CONTACT</a>
+        <a onClick={() => setOpen(!open)}>CONTACT</a>
       </Link>
     </MobileLinks>
   );
