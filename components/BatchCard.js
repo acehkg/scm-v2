@@ -50,7 +50,7 @@ const BatchCard = ({ batch }) => {
       <BatchInfo variants={fadeInUp}>
         <Title>{batch.name}</Title>
         <Title>Type: {batch.type}</Title>
-        <motion.div>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Link href={batch.slug}>
             <BatchLink>DETAILS</BatchLink>
           </Link>

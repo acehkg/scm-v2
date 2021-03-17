@@ -57,6 +57,10 @@ const BackToMalt = styled(motion.a)`
   color: ${(props) => props.theme.blueColour};
   font-size: 0.75rem;
   text-align: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Malt = ({ malt, analysisSlug }) => {
