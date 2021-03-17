@@ -12,7 +12,8 @@ const meta = {
   title: 'Simcoe County Malt Inc.',
   description:
     'Locally grown barley crafted with care into premium malt. Better ingredients make better beer.',
-  image: '/logored.png',
+  image: '/images/logolargered.png',
+  site: 'https://scm-v2.vercel.app',
 };
 
 const MyApp = ({ Component, pageProps, router }) => {

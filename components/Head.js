@@ -72,7 +72,8 @@ const PageHead = ({ meta }) => {
       <meta property='og:site_name' content='Simcoe County Malt Inc.' />
       <meta property='og:image' content={meta.image ? meta.image : ''} />
       <meta name='twitter:image' content={meta.image ? meta.image : ''} />
-      <meta name='twitter:card' content={meta.title} />
+      <meta name='twitter:site' content={meta.site} />
+      <meta name='twitter:card' content='summary' />
       <meta name='twitter:title' content={meta.title} />
       <meta name='twitter:description' content={meta.description} />
     </Head>
