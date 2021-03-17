@@ -2,6 +2,7 @@ import faunadb from 'faunadb';
 import styled from 'styled-components';
 import BatchCard from '../components/BatchCard';
 import { motion } from 'framer-motion';
+import { fadeInUp, stagger } from '../animations/Animations';
 
 const Container = styled(motion.div)`
   width: 80%;
@@ -9,6 +10,7 @@ const Container = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   grid-gap: 2rem;
+  justify-items: center;
   @media (max-width: 834px) {
     display: flex;
     flex-direction: column;
@@ -19,9 +21,18 @@ const Container = styled(motion.div)`
 
 const Analysis = ({ batches }) => {
   return (
-    <Container exit={{ opacity: 0 }}>
+    <Container
+      exit={{ opacity: 0 }}
+      initial='initial'
+      animate='animate'
+      variants={stagger}
+    >
       {batches.map((b) => {
-        return <BatchCard key={b.id} batch={b} />;
+        return (
+          <motion.div variants={fadeInUp} key={b.id}>
+            <BatchCard batch={b} />
+          </motion.div>
+        );
       })}
     </Container>
   );

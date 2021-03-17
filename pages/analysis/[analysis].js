@@ -3,13 +3,14 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import DataTable from '../../components/DataTable';
 import { motion } from 'framer-motion';
+import { fadeInDown } from '../../animations/Animations';
 
 const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
 `;
 
-const Back = styled.div`
+const Back = styled(motion.div)`
   font-size: 1.25rem;
   display: block;
   width: 40%;
@@ -18,7 +19,8 @@ const Back = styled.div`
   line-height: 2.6rem;
   text-align: center;
   color: ${(props) => props.theme.whiteColour};
-  background-color: ${(props) => props.theme.redColour};
+  background-color: ${(props) => props.theme.buttonColour};
+  border-radius: ${(props) => props.theme.buttonRadius};
 
   & :hover {
     cursor: pointer;
@@ -52,9 +54,15 @@ const Analysis = ({ malt, slug }) => {
   };
 
   return (
-    <Container exit={{ opacity: 0 }}>
+    <Container exit={{ opacity: 0 }} initial='initial' animate='animate'>
       <Link href={slug}>
-        <Back>BACK</Back>
+        <Back
+          variants={fadeInDown}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          BACK
+        </Back>
       </Link>
       <DataTable data={formattedMalt} />
     </Container>

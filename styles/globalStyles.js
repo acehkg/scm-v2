@@ -20,4 +20,6 @@ export const theme = {
   whiteColour: '#ffffff',
   greyColour: 'rgba(31, 7, 7, 0.1)',
   textColour: '#4f1111',
+  buttonColour: '#09344f',
+  buttonRadius: '3rem',
 };

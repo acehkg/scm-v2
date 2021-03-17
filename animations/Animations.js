@@ -22,6 +22,20 @@ export const stagger = {
     },
   },
 };
+export const staggerShort = {
+  animate: {
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+export const staggerLong = {
+  animate: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
 export const fadeInUp = {
   initial: {
@@ -30,6 +44,36 @@ export const fadeInUp = {
   },
   animate: {
     y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: easing,
+    },
+  },
+};
+
+export const slideRightFadeIn = {
+  initial: {
+    x: -100,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: easing,
+    },
+  },
+};
+
+export const slideLeftFadeIn = {
+  initial: {
+    x: 100,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
     opacity: 1,
     transition: {
       duration: 0.6,

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { UnstyledLink } from '../../styles/globalStyles';
 import { motion } from 'framer-motion';
+import { slideRightFadeIn, fadeInUp } from '../../animations/Animations';
 
 const Container = styled(motion.div)`
   width: 80%;
@@ -16,18 +17,18 @@ const Container = styled(motion.div)`
   }
 `;
 
-const InfoContainer = styled.div`
+const InfoContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
 `;
-const ImageContainer = styled.div`
+const ImageContainer = styled(motion.div)`
   width: 100%;
 `;
 
-const Title = styled.h2`
+const Title = styled(motion.h2)`
   margin: 1rem 0;
   font-size: 1.25rem;
   font-weight: 400;
@@ -43,12 +44,25 @@ const Analysis = styled(UnstyledLink)`
   line-height: 2.6rem;
   text-align: center;
   color: ${(props) => props.theme.whiteColour};
-  background-color: ${(props) => props.theme.redColour};
+  background-color: ${(props) => props.theme.buttonColour};
+  border-radius: ${(props) => props.theme.buttonRadius};
 `;
+
+const LinkMotion = styled(motion.div)`
+  width: 100%;
+`;
+
+const BackToMalt = styled(motion.a)`
+  text-decoration: none;
+  color: ${(props) => props.theme.blueColour};
+  font-size: 0.75rem;
+  text-align: center;
+`;
+
 const Malt = ({ malt, analysisSlug }) => {
   return (
-    <Container exit={{ opacity: 0 }}>
-      <ImageContainer>
+    <Container exit={{ opacity: 0 }} initial='initial' animate='animate'>
+      <ImageContainer variants={slideRightFadeIn}>
         <Image
           src={`/images/products/${malt.batch}.png`}
           alt={`${malt.name}`}
@@ -58,7 +72,7 @@ const Malt = ({ malt, analysisSlug }) => {
         />
       </ImageContainer>
 
-      <InfoContainer>
+      <InfoContainer variants={fadeInUp}>
         <Title>{malt.name}</Title>
         <Title>
           {malt.variety} {malt.grain}
@@ -67,8 +81,15 @@ const Malt = ({ malt, analysisSlug }) => {
         <Title>Harvested {malt.harvested}</Title>
         <Title>Malted {malt.malted}</Title>
         <Title>${malt.price / 100} 25kg Bag</Title>
-        <Link href={analysisSlug}>
-          <Analysis>SEE ANALYSIS</Analysis>
+        <LinkMotion whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <Link href={analysisSlug}>
+            <Analysis>SEE ANALYSIS</Analysis>
+          </Link>
+        </LinkMotion>
+        <Link href='/malt'>
+          <BackToMalt whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            BACK TO ALL MALT
+          </BackToMalt>
         </Link>
       </InfoContainer>
     </Container>

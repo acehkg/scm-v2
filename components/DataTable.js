@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { staggerShort, fadeInUp } from '../animations/Animations';
 
-const Table = styled.div`
+const Table = styled(motion.div)`
   width: 80%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
@@ -8,7 +10,7 @@ const Table = styled.div`
   margin: 2rem auto;
 `;
 
-const Cell = styled.div`
+const Cell = styled(motion.div)`
   color: ${(props) => props.theme.textColour};
   text-align: center;
 `;
@@ -24,10 +26,10 @@ const DataTable = ({ data }) => {
   const cards = Object.entries(data);
 
   return (
-    <Table>
+    <Table variants={staggerShort}>
       {cards.map((card) => {
         return (
-          <Cell key={card[0]}>
+          <Cell variants={fadeInUp} key={card[0]}>
             <Labels>{card[0]}</Labels>
             <Values>{card[1]}</Values>
           </Cell>

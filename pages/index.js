@@ -51,8 +51,8 @@ const OurMalt = styled(UnstyledLink)`
   line-height: 3.2rem;
   text-align: center;
   color: ${(props) => props.theme.whiteColour};
-  background-color: ${(props) => props.theme.blueColour};
-  border-radius: 3rem;
+  background-color: ${(props) => props.theme.buttonColour};
+  border-radius: ${(props) => props.theme.buttonRadius};
 
   @media (max-width: 1024px) {
     width: 100%;
@@ -86,7 +86,11 @@ const Home = () => {
           Locally grown then crafted with care. Better ingredients make better
           beer.
         </Motto>
-        <motion.div variants={fadeInDown}>
+        <motion.div
+          variants={fadeInDown}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
           <Link href='/malt'>
             <OurMalt>SEE OUR MALT</OurMalt>
           </Link>
