@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
+import PageHead from '../components/Head';
 import { UnstyledLink } from '../styles/globalStyles';
 import { motion } from 'framer-motion';
 import { fadeInDown, fadeInUp, stagger } from '../animations/Animations';
@@ -76,36 +77,39 @@ const LandingImage = styled(motion.div)`
 
 const Home = () => {
   return (
-    <Content exit={{ opacity: 0 }} initial='initial' animate='animate'>
-      <TextContainer variants={stagger}>
-        <TitleContainer variants={fadeInDown}>
-          <Title>ONTARIO GRAIN.</Title>
-          <Title>ONTARIO MALT.</Title>
-        </TitleContainer>
-        <Motto variants={fadeInDown}>
-          Locally grown then crafted with care. Better ingredients make better
-          beer.
-        </Motto>
-        <motion.div
-          variants={fadeInDown}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Link href='/malt'>
-            <OurMalt>SEE OUR MALT</OurMalt>
-          </Link>
-        </motion.div>
-      </TextContainer>
-      <LandingImage variants={fadeInUp}>
-        <Image
-          src='/images/barley-768-2.png'
-          alt='Barley'
-          layout='responsive'
-          width={768}
-          height={569}
-        />
-      </LandingImage>
-    </Content>
+    <>
+      <PageHead />
+      <Content exit={{ opacity: 0 }} initial='initial' animate='animate'>
+        <TextContainer variants={stagger}>
+          <TitleContainer variants={fadeInDown}>
+            <Title>ONTARIO GRAIN.</Title>
+            <Title>ONTARIO MALT.</Title>
+          </TitleContainer>
+          <Motto variants={fadeInDown}>
+            Locally grown then crafted with care. Better ingredients make better
+            beer.
+          </Motto>
+          <motion.div
+            variants={fadeInDown}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link href='/malt'>
+              <OurMalt>SEE OUR MALT</OurMalt>
+            </Link>
+          </motion.div>
+        </TextContainer>
+        <LandingImage variants={fadeInUp}>
+          <Image
+            src='/images/barley-768-2.png'
+            alt='Barley'
+            layout='responsive'
+            width={768}
+            height={569}
+          />
+        </LandingImage>
+      </Content>
+    </>
   );
 };
 
