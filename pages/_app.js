@@ -6,12 +6,21 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../styles/globalStyles';
 import Burger from '../components/Burger';
 import { AnimatePresence } from 'framer-motion';
+import PageHead from '../components/Head';
+
+const meta = {
+  title: 'Simcoe County Malt Inc.',
+  description:
+    'Locally grown barley crafted with care into premium malt. Better ingredients make better beer.',
+  image: '/logored.png',
+};
 
 const MyApp = ({ Component, pageProps, router }) => {
   return (
     <NavOpenProvider>
       <Normalize />
       <ThemeProvider theme={theme}>
+        <PageHead meta={meta} />
         <Container>
           <Navbar />
           <Burger />

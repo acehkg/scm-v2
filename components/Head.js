@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-const PageHead = ({ title, description, image, author }) => {
+const PageHead = ({ meta }) => {
   return (
     <Head>
       <link rel='apple-touch-icon' sizes='57x57' href='/apple-icon-57x57.png' />
@@ -60,22 +60,21 @@ const PageHead = ({ title, description, image, author }) => {
       <meta name='msapplication-TileColor' content='#ffffff' />
       <meta name='msapplication-TileImage' content='/ms-icon-144x144.png' />
       <meta name='theme-color' content='#ffffff'></meta>
-      <title>This Is A Title</title>
-      <meta name='description' content='' />
+      <title>{meta.title}</title>
+      <meta name='description' content={meta.description} />
       <meta property='og:type' content='website' />
-      <meta name='og:title' property='og:title' content='' />
-      <meta name='og:description' property='og:description' content='' />
-      <meta property='og:site_name' content='' />
-      <meta property='og:url' content='' />
-      <meta name='twitter:card' content='summary' />
-      <meta name='twitter:title' content='' />
-      <meta name='twitter:description' content={props.desc} />
-      <meta name='twitter:site' content='' />
-      <meta name='twitter:creator' content='' />
-      <link rel='icon' type='image/png' href='/static/images/favicon.ico' />
-      <link rel='apple-touch-icon' href='/static/images/favicon.ico' />
-      <meta property='og:image' content='' />
-      <meta name='twitter:image' content='' />
+      <meta name='og:title' property='og:title' content={meta.title} />
+      <meta
+        name='og:description'
+        property='og:description'
+        content={meta.description}
+      />
+      <meta property='og:site_name' content='Simcoe County Malt Inc.' />
+      <meta property='og:image' content={meta.image ? meta.image : ''} />
+      <meta name='twitter:image' content={meta.image ? meta.image : ''} />
+      <meta name='twitter:card' content={meta.title} />
+      <meta name='twitter:title' content={meta.title} />
+      <meta name='twitter:description' content={meta.description} />
     </Head>
   );
 };

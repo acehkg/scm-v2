@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
-//import PageHead from '../components/Head';
 import { UnstyledLink } from '../styles/globalStyles';
 import { motion } from 'framer-motion';
 import { fadeInDown, fadeInUp, stagger } from '../animations/Animations';
