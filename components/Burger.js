@@ -25,7 +25,7 @@ const StyledBurger = styled.div`
     background-color: ${({ open }) => (open ? '#4f1111' : '#5c4e4e')};
     border-radius: 10px;
     transform-origin: 1px;
-    transition: ${({ open }) => (open ? 'all 0.3s linear' : 'all 0.2s linear')};
+    transition: ${({ open }) => (open ? 'all 0.2s linear' : 'all 0.2s linear')};
 
     &:nth-child(1) {
       transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
