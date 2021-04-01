@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import CreateAnalysisPanels from './CreateAnalysisPanels';
 //layout components
 import ButtonClick from '../components/Interfaces/ButtonClick';
+import CloseButton from '../components/Interfaces/CloseButton';
 
 const SmallAnalysis = ({ analysis, size, dataSize }) => {
   return (
@@ -87,17 +88,15 @@ const AnalysisSlider = ({ analysis, open, setOpen }) => {
     }
   }, [open]);
 
-  const handleClose = () => {
-    setOpen(!open);
-  };
   return (
     <Panel open={open}>
       <SmallAnalysis analysis={analysis} dataSize='verySmall' size='small' />
       <MobileAnalysis analysis={analysis} dataSize='small' size='small' />
       <IpadAnalysis analysis={analysis} dataSize='medium' size='medium' />
       <DesktopAnalysis analysis={analysis} dataSize='large' size='large' />
-
-      <ButtonClick onClick={handleClose} size='small' text='CLOSE' />
+      <CloseWrapper>
+        <CloseButton open={open} setOpen={setOpen} />
+      </CloseWrapper>
     </Panel>
   );
 };
@@ -108,6 +107,7 @@ const Panel = styled.div`
   right: 0;
   height: 100%;
   width: 100%;
+  overflow: scroll;
   padding-top: 2rem;
   background-color: var(--light-grey);
   transition: transform 0.3s ease-in-out;
@@ -121,5 +121,9 @@ const Panel = styled.div`
     transform: translateY(${(props) => (props.open ? '0' : '-100%')});
   }
 `;
-
+const CloseWrapper = styled.div`
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+`;
 export default AnalysisSlider;
