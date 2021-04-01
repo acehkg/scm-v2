@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Image from 'next/image';
-import { mediaQueries } from '../../styles/mediaqueries';
+import { mediaQueries } from '../../style/mediaqueries';
 
 const Wrapper = styled.div`
   width: 100px;

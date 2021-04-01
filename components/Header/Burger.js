@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mediaQueries } from '../../styles/mediaqueries';
+import { mediaQueries } from '../../style/mediaqueries';
 import useNav from '../../hooks/useNav';
 
 const StyledBurger = styled.div`

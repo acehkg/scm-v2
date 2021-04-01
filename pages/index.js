@@ -6,7 +6,7 @@ import { fadeInDown, fadeInUp, stagger } from '../animations/Animations';
 //Layout Components
 import ButtonLink from '../components/Interfaces/ButtonLink';
 //Media Queries
-import { mediaQueries } from '../styles/mediaqueries';
+import { mediaQueries } from '../style/mediaqueries';
 
 const FeatureImage = ({ variants }) => {
   return (

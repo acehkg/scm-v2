@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import { mediaQueries } from '../../styles/mediaqueries';
+import { mediaQueries } from '../../style/mediaqueries';
 
 const Wrapper = styled.nav`
   display: none;

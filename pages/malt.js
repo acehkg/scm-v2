@@ -5,7 +5,7 @@ import { stagger } from '../animations/Animations';
 //layout components
 import BatchCard from '../components/BatchCard';
 //media queries
-import { mediaQueries } from '../styles/mediaqueries';
+import { mediaQueries } from '../style/mediaqueries';
 
 const Analysis = ({ batches }) => {
   return (
