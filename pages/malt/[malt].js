@@ -15,6 +15,8 @@ const PageWrapper = styled(motion.div)`
   height: 100%;
   margin: 0 auto;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   text-align: center;
 `;
@@ -94,7 +96,7 @@ const Malt = ({ malt }) => {
   };
   return (
     <PageWrapper exit={{ opacity: 0 }} initial='initial' animate='animate'>
-      <BackButton size={24} color='var(--red-color)' />
+      <BackButton size={24} color='var(--red-color)' href='/malt' />
       <MaltImage malt={malt} variants={slideRightFadeIn} />
       <MaltInfo malt={malt} variants={fadeInUp} />
       <SeeAnalysis
