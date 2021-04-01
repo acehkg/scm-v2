@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Link from 'next/link';
 
 const SIZES = {
   small: {
@@ -19,17 +18,17 @@ const SIZES = {
   },
 };
 
-const ButtonLink = ({ size, href, text }) => {
+const ButtonClick = ({ size, onClick, text }) => {
   const styles = SIZES[size];
 
   return (
-    <Link href={href}>
-      <ButtonBase style={styles}>{text}</ButtonBase>
-    </Link>
+    <ButtonBase onClick={onClick} style={styles}>
+      {text}
+    </ButtonBase>
   );
 };
 
-const ButtonBase = styled.a`
+const ButtonBase = styled.button`
   font-size: var(--fontSize);
   padding: var(--padding);
   border-radius: var(--borderRadius);
@@ -47,4 +46,4 @@ const ButtonBase = styled.a`
   }
 `;
 
-export default ButtonLink;
+export default ButtonClick;

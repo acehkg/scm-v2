@@ -8,6 +8,7 @@ const StyledBurger = styled.div`
   flex-flow: column nowrap;
   width: 2rem;
   height: 2rem;
+  z-index: 2;
   @media (min-width: ${mediaQueries.ipad}) {
     display: none;
   }
@@ -15,7 +16,7 @@ const StyledBurger = styled.div`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: var(--text-color);
+    background-color: var(--red-color);
     border-radius: 10px;
     transform-origin: 1px;
     transition: ${({ open }) =>
@@ -23,12 +24,14 @@ const StyledBurger = styled.div`
 
     &:nth-child(1) {
       transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
+      background-color: ${({ open }) => (open ? 'white' : 'var(--red-color)')};
     }
     &:nth-child(2) {
       visibility: ${({ open }) => (open ? 'hidden' : 'revert')};
     }
     &:nth-child(3) {
       transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
+      background-color: ${({ open }) => (open ? 'white' : 'var(--red-color)')};
     }
   }
 `;

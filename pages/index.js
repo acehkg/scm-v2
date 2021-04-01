@@ -56,10 +56,10 @@ const MottoText = styled(motion.p)`
   line-height: 1.5;
 `;
 
-const CallToAction = ({ variants, text }) => {
+const CallToAction = ({ variants, text, href, size }) => {
   return (
     <motion.div variants={variants}>
-      <ButtonLink href='/' size='large' text={text} />
+      <ButtonLink href={href} size={size} text={text} />
     </motion.div>
   );
 };
@@ -76,7 +76,12 @@ const Home = () => {
       <TextWrapper>
         <Banner variants={fadeInUp} />
         <Motto variants={fadeInUp} />
-        <CallToAction variants={fadeInUp} text='SEE OUR MALT' />
+        <CallToAction
+          variants={fadeInUp}
+          text='SEE OUR MALT'
+          href='/malt'
+          size='large'
+        />
       </TextWrapper>
     </Wrapper>
   );

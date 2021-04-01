@@ -21,9 +21,17 @@ const MobileLinks = () => {
   return (
     <Wrapper>
       <Link href={'/'}>
-        <a onClick={handleNav}>HOME</a>
+        <Links onClick={handleNav}>HOME</Links>
+      </Link>
+      <Link href={'/malt'}>
+        <Links onClick={handleNav}>MALT</Links>
       </Link>
     </Wrapper>
   );
 };
+
+const Links = styled.a`
+  color: var(--white-color);
+  font-size: 1.5rem;
+`;
 export default MobileLinks;

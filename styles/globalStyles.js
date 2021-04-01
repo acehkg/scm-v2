@@ -79,9 +79,8 @@ a {
     --text-color:hsl(198,33%,6%);
     --red-color:hsl(0,64.6%,18.8%);
     --blue-color:hsl(203.1,79.5%,17.3%);
-    --background-color:hsl(150,7%,95%,.7);
-    --dark-grey:hsl(140,9%,62%);
-    --light-grey:hsl(120,3%,85%);
+    --dark-grey:darkgrey;
+    --light-grey:lightgrey;
     --white-color:#fff;
     --blueLightened-color:hsl(203.1, 79.5%,17.3%,.5);
 
@@ -99,7 +98,7 @@ a {
       font-family: 'Roboto', sans-serif;
       //Base Colors so whole document has access to variables
       color:var(--text-color);
-      background-color:var(--background-color);
+      background-color:var(--white-color);
     
   
   }

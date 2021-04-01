@@ -1,43 +1,43 @@
 import faunadb from 'faunadb';
 import styled from 'styled-components';
-import BatchCard from '../components/BatchCard';
 import { motion } from 'framer-motion';
-import { fadeInUp, stagger } from '../animations/Animations';
-
-const Container = styled(motion.div)`
-  width: 80%;
-  margin: 3rem auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-  grid-gap: 2rem;
-  justify-items: center;
-  @media (max-width: 834px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-`;
+import { stagger } from '../animations/Animations';
+//layout components
+import BatchCard from '../components/BatchCard';
+//media queries
+import { mediaQueries } from '../styles/mediaqueries';
 
 const Analysis = ({ batches }) => {
   return (
-    <Container
+    <PageWrapper
       exit={{ opacity: 0 }}
       initial='initial'
       animate='animate'
       variants={stagger}
     >
-      {batches.map((b) => {
-        return (
-          <motion.div variants={fadeInUp} key={b.id}>
-            <BatchCard batch={b} />
-          </motion.div>
-        );
-      })}
-    </Container>
+      <BatchWrapper>
+        {batches.map((b) => {
+          return <BatchCard key={b.id} batch={b} />;
+        })}
+      </BatchWrapper>
+    </PageWrapper>
   );
 };
+const PageWrapper = styled(motion.div)`
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 
+  @media (min-width: ${mediaQueries.ipad}) {
+    flex-direction: unset;
+    align-items: center;
+  }
+`;
+const BatchWrapper = styled.div`
+  padding-bottom: 2rem;
+`;
 export const getStaticProps = async () => {
   const faunaClient = new faunadb.Client({ secret: process.env.FAUNA_SECRET });
 

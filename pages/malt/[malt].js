@@ -1,102 +1,114 @@
+import { useState } from 'react';
 import faunadb from 'faunadb';
 import styled from 'styled-components';
 import Image from 'next/image';
-import Link from 'next/link';
-import { UnstyledLink } from '../../styles/globalStyles';
 import { motion } from 'framer-motion';
 import { slideRightFadeIn, fadeInUp } from '../../animations/Animations';
+//Layout Components
+import ButtonLink from '../../components/Interfaces/ButtonLink';
+import ButtonClick from '../../components/Interfaces/ButtonClick';
+import AnalysisSlider from '../../components/AnalysisSlider';
 
-const Container = styled(motion.div)`
+const PageWrapper = styled(motion.div)`
   width: 80%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-
-  @media (min-width: 1023px) {
-    flex-direction: row;
-  }
+  text-align: center;
 `;
 
-const InfoContainer = styled(motion.div)`
+const MaltImage = ({ malt, variants }) => {
+  return (
+    <ImageWrapper variants={variants}>
+      <Image
+        src={`/images/products/${malt.batch}.png`}
+        alt={`${malt.name}`}
+        layout='responsive'
+        width={1024}
+        height={768}
+      />
+    </ImageWrapper>
+  );
+};
+const ImageWrapper = styled(motion.div)`
+  width: 100%;
+`;
+
+const MaltInfo = ({ variants, malt }) => {
+  return (
+    <InfoWrapper variants={variants}>
+      <Title>{malt.name}</Title>
+      <Title>
+        {malt.variety} {malt.grain}
+      </Title>
+      <Title>{malt.grown}</Title>
+      <Title>Harvested {malt.harvested}</Title>
+      <Title>Malted {malt.malted}</Title>
+      <Title>${malt.price / 100} 25kg Bag</Title>
+    </InfoWrapper>
+  );
+};
+
+const InfoWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  width: 100%;
-`;
-const ImageContainer = styled(motion.div)`
-  width: 100%;
 `;
 
 const Title = styled(motion.h2)`
   margin: 1rem 0;
   font-size: 1.25rem;
   font-weight: 400;
-  color: ${(props) => props.theme.textColour};
+  color: var(--text-color);
 `;
 
-const Analysis = styled(UnstyledLink)`
-  display: block;
-  width: 60%;
-  margin: 1rem auto;
-  height: 2.5rem;
-  font-size: 1rem;
-  line-height: 2.6rem;
-  text-align: center;
-  color: ${(props) => props.theme.whiteColour};
-  background-color: ${(props) => props.theme.buttonColour};
-  border-radius: ${(props) => props.theme.buttonRadius};
-`;
-
-const LinkMotion = styled(motion.div)`
-  width: 100%;
-`;
-
-const BackToMalt = styled(motion.a)`
-  text-decoration: none;
-  color: ${(props) => props.theme.blueColour};
-  font-size: 0.75rem;
-  text-align: center;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const Malt = ({ malt, analysisSlug }) => {
+const BackToMalt = ({ variants, text, href, size }) => {
   return (
-    <Container exit={{ opacity: 0 }} initial='initial' animate='animate'>
-      <ImageContainer variants={slideRightFadeIn}>
-        <Image
-          src={`/images/products/${malt.batch}.png`}
-          alt={`${malt.name}`}
-          layout='responsive'
-          width={1024}
-          height={768}
-        />
-      </ImageContainer>
+    <BackWrapper variants={variants}>
+      <ButtonLink href={href} size={size} text={text} />
+    </BackWrapper>
+  );
+};
 
-      <InfoContainer variants={fadeInUp}>
-        <Title>{malt.name}</Title>
-        <Title>
-          {malt.variety} {malt.grain}
-        </Title>
-        <Title>{malt.grown}</Title>
-        <Title>Harvested {malt.harvested}</Title>
-        <Title>Malted {malt.malted}</Title>
-        <Title>${malt.price / 100} 25kg Bag</Title>
-        <LinkMotion whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Link href={analysisSlug}>
-            <Analysis>SEE ANALYSIS</Analysis>
-          </Link>
-        </LinkMotion>
-        <Link href='/malt'>
-          <BackToMalt whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            BACK TO ALL MALT
-          </BackToMalt>
-        </Link>
-      </InfoContainer>
-    </Container>
+const BackWrapper = styled(motion.div)`
+  padding-bottom: 1rem;
+`;
+const SeeAnalysis = ({ variants, text, onClick, size }) => {
+  return (
+    <AnalysisWrapper variants={variants}>
+      <ButtonClick onClick={onClick} text={text} size={size} />
+    </AnalysisWrapper>
+  );
+};
+
+const AnalysisWrapper = styled(motion.div)`
+  padding-bottom: 1rem;
+`;
+const Malt = ({ malt }) => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+  return (
+    <PageWrapper exit={{ opacity: 0 }} initial='initial' animate='animate'>
+      <MaltImage malt={malt} variants={slideRightFadeIn} />
+      <MaltInfo malt={malt} variants={fadeInUp} />
+      <SeeAnalysis
+        variants={fadeInUp}
+        onClick={handleOpen}
+        size='small'
+        text='ANALYSIS'
+      />
+      <BackToMalt
+        href='/malt'
+        size='small'
+        text='ALL MALT'
+        variants={fadeInUp}
+      />
+      <AnalysisSlider analysis={malt.analysis} open={open} setOpen={setOpen} />
+    </PageWrapper>
   );
 };
 
@@ -140,7 +152,7 @@ export const getStaticProps = async (context) => {
   const analysisSlug = `/analysis/${batchTarget[0].data.batch}`;
   const malt = {
     ...batchTarget[0].data,
-    ...batchTarget[0].data.analysis,
+    //...batchTarget[0].data.analysis,
   };
   return {
     props: {

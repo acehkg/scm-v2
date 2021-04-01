@@ -11,18 +11,25 @@ const Wrapper = styled.nav`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 1.5rem;
-    font-weight: 700;
   }
 `;
 const DesktopLinks = () => {
   return (
     <Wrapper>
       <Link href={'/'}>
-        <a>HOME</a>
+        <Links>HOME</Links>
+      </Link>
+      <Link href={'/malt'}>
+        <Links>MALT</Links>
       </Link>
     </Wrapper>
   );
 };
 
+const Links = styled.a`
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0 2rem;
+  color: var(--red-color);
+`;
 export default DesktopLinks;

@@ -9,9 +9,10 @@ const Panel = styled.div`
   right: 0;
   height: 100%;
   width: 50%;
-  background-color: var(--dark-grey);
+  background-color: var(--blue-color);
   transition: transform 0.2s ease-out;
   transform: translateX(${(props) => (props.open ? '0' : '100%')});
+  z-index: 1;
 `;
 
 const Slider = () => {
