@@ -28,8 +28,8 @@ const MyApp = ({ Component, pageProps, router }) => {
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>
       </NavOpenProvider>
-      <Font />
       <GlobalStyles />
+      <Font />
     </>
   );
 };
