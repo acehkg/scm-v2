@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import Image from 'next/image';
+import Link from 'next/link';
 //Animation
 import { motion } from 'framer-motion';
 import { fadeInDown, fadeInUp, stagger } from '../animations/Animations';
 //Layout Components
 import ButtonLink from '../components/Interfaces/ButtonLink';
-//Media Queries
-import { mediaQueries } from '../styles/mediaqueries';
 
 const FeatureImage = ({ variants }) => {
   return (
@@ -72,12 +71,11 @@ const Home = () => {
       animate='animate'
       variants={stagger}
     >
-      <FeatureImage variants={fadeInDown} />
-      <TextWrapper>
-        <Banner variants={fadeInUp} />
-        <Motto variants={fadeInUp} />
-        <CallToAction variants={fadeInUp} text='SEE OUR MALT' />
-      </TextWrapper>
+      <FeatureImage variants={fadeInUp} />
+
+      <Banner variants={fadeInUp} />
+      <Motto variants={fadeInUp} />
+      <CallToAction variants={fadeInUp} text='SEE OUR MALT' />
     </Wrapper>
   );
 };
@@ -86,27 +84,10 @@ const Wrapper = styled(motion.div)`
   height: 100%;
   width: 80%;
   margin: 0 auto;
-
-  @media (min-width: ${mediaQueries.ipad}) {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-around;
-  }
-`;
-
-const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 80%;
   align-items: center;
   justify-content: space-evenly;
-
-  @media (min-width: ${mediaQueries.ipad}) {
-    width: 70%;
-    height: 70%;
-  }
 `;
 
 export default Home;

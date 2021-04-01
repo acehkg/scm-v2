@@ -1,11 +1,12 @@
-import Container from '../components/GlobalContainer';
-import NavOpenProvider from '../context/MenuContext';
-import Navbar from '../components/Navbar';
-import { Normalize } from 'styled-normalize';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../styles/globalStyles';
-import Burger from '../components/Burger';
+import Font from '../styles/Font';
+import GlobalStyles from '../styles/GlobalStyles';
 import { AnimatePresence } from 'framer-motion';
+//Context for Navbar
+import NavOpenProvider from '../context/MenuContext';
+//layout components
+import Header from '../components/Header/Header';
+import Slider from '../components/Header/Slider';
+//SEO
 import PageHead from '../components/Head';
 
 const meta = {
@@ -18,19 +19,18 @@ const meta = {
 
 const MyApp = ({ Component, pageProps, router }) => {
   return (
-    <NavOpenProvider>
-      <Normalize />
-      <ThemeProvider theme={theme}>
+    <>
+      <NavOpenProvider>
         <PageHead meta={meta} />
-        <Container>
-          <Navbar />
-          <Burger />
-          <AnimatePresence exitBeforeEnter>
-            <Component {...pageProps} key={router.route} />
-          </AnimatePresence>
-        </Container>
-      </ThemeProvider>
-    </NavOpenProvider>
+        <Slider />
+        <Header />
+        <AnimatePresence exitBeforeEnter>
+          <Component {...pageProps} key={router.route} />
+        </AnimatePresence>
+      </NavOpenProvider>
+      <Font />
+      <GlobalStyles />
+    </>
   );
 };
 
