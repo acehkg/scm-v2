@@ -1,5 +1,5 @@
-import Font from '../styles/Font';
-import GlobalStyles from '../styles/GlobalStyles';
+import Font from '../style/Font';
+import GlobalStyles from '../style/GlobalStyles';
 import { AnimatePresence } from 'framer-motion';
 //Context for Navbar
 import NavOpenProvider from '../context/MenuContext';
