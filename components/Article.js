@@ -4,7 +4,7 @@ import marked from 'marked';
 const Container = styled.div`
   width: 60%;
   margin: 3rem auto;
-  color: ${(props) => props.theme.textColour};
+  color: var(--text-color);
 `;
 
 const Article = ({ content, data }) => {

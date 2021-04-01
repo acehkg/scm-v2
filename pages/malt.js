@@ -15,11 +15,9 @@ const Analysis = ({ batches }) => {
       animate='animate'
       variants={stagger}
     >
-      <BatchWrapper>
-        {batches.map((b) => {
-          return <BatchCard key={b.id} batch={b} />;
-        })}
-      </BatchWrapper>
+      {batches.map((b) => {
+        return <BatchCard key={b.id} batch={b} />;
+      })}
     </PageWrapper>
   );
 };
@@ -32,7 +30,6 @@ const PageWrapper = styled(motion.div)`
 
   @media (min-width: ${mediaQueries.ipad}) {
     flex-direction: unset;
-    align-items: center;
   }
 `;
 const BatchWrapper = styled.div`

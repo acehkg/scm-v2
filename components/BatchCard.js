@@ -7,6 +7,7 @@ import ButtonLink from '../components/Interfaces/ButtonLink';
 
 const CardWrapper = styled(motion.div)`
   padding-top: 2rem;
+  padding-bottom: 2rem;
   width: 100%;
   text-align: center;
 `;

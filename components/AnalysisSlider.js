@@ -1,10 +1,81 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
+//panel creation utility
+import CreateAnalysisPanels from './CreateAnalysisPanels';
 //layout components
 import ButtonClick from '../components/Interfaces/ButtonClick';
-import DataTable from '../components/DataTable';
-//media queries
-import { mediaQueries } from '../styles/mediaqueries';
+
+const SmallAnalysis = ({ analysis, size, dataSize }) => {
+  return (
+    <SmallWrapper>
+      <CreateAnalysisPanels
+        size={size}
+        dataSize={dataSize}
+        analysis={analysis}
+      />
+    </SmallWrapper>
+  );
+};
+
+const SmallWrapper = styled.div`
+  @media (min-width: 374px) {
+    display: none;
+  }
+`;
+const MobileAnalysis = ({ analysis, size, dataSize }) => {
+  return (
+    <MobileWrapper>
+      <CreateAnalysisPanels
+        size={size}
+        dataSize={dataSize}
+        analysis={analysis}
+      />
+    </MobileWrapper>
+  );
+};
+
+const MobileWrapper = styled.div`
+  display: none;
+  @media (min-width: 375px) and (max-width: 767px) {
+    display: block;
+  }
+`;
+const IpadAnalysis = ({ analysis, size, dataSize }) => {
+  return (
+    <IpadWrapper>
+      <CreateAnalysisPanels
+        size={size}
+        dataSize={dataSize}
+        analysis={analysis}
+      />
+    </IpadWrapper>
+  );
+};
+
+const IpadWrapper = styled.div`
+  display: none;
+  @media (min-width: 768px) and (max-width: 1023px) {
+    display: block;
+  }
+`;
+const DesktopAnalysis = ({ analysis, size, dataSize }) => {
+  return (
+    <DesktopWrapper>
+      <CreateAnalysisPanels
+        size={size}
+        dataSize={dataSize}
+        analysis={analysis}
+      />
+    </DesktopWrapper>
+  );
+};
+
+const DesktopWrapper = styled.div`
+  display: none;
+  @media (min-width: 1024px) {
+    display: block;
+  }
+`;
 
 const AnalysisSlider = ({ analysis, open, setOpen }) => {
   useEffect(() => {
@@ -16,27 +87,17 @@ const AnalysisSlider = ({ analysis, open, setOpen }) => {
     }
   }, [open]);
 
-  const analysisDisplay = {
-    Moisture: analysis.moisture,
-    Color: analysis.color,
-    Friability: analysis.friability,
-    'Coarse Extract': analysis.coarse,
-    'Diastatic Power': analysis.diastaticPower,
-    Filtration: analysis.filtration,
-    pH: analysis.ph,
-  };
   const handleClose = () => {
     setOpen(!open);
   };
   return (
     <Panel open={open}>
-      <TableWrapper>
-        <DataTable data={analysisDisplay} />
-      </TableWrapper>
-      <ButtonWrapper>
-        <ButtonClick onClick={handleClose} size='small' text='CLOSE' />
-        <ButtonClick size='small' text='FULL SPECS' />
-      </ButtonWrapper>
+      <SmallAnalysis analysis={analysis} dataSize='verySmall' size='small' />
+      <MobileAnalysis analysis={analysis} dataSize='small' size='small' />
+      <IpadAnalysis analysis={analysis} dataSize='medium' size='medium' />
+      <DesktopAnalysis analysis={analysis} dataSize='large' size='large' />
+
+      <ButtonClick onClick={handleClose} size='small' text='CLOSE' />
     </Panel>
   );
 };
@@ -47,31 +108,18 @@ const Panel = styled.div`
   right: 0;
   height: 100%;
   width: 100%;
+  padding-top: 2rem;
   background-color: var(--light-grey);
-  transition: transform 0.2s ease-out;
+  transition: transform 0.3s ease-in-out;
   transform: translateX(${(props) => (props.open ? '0' : '100%')});
   z-index: 3;
 
-  @media (min-width: ${mediaQueries.mobileLarge}) {
-    height: 50%;
-    transition: transform 0.2s ease-out;
+  @media (min-width: 768px) {
+    //height: 100%;
+
+    transition: transform 0.3s ease-in-out;
     transform: translateY(${(props) => (props.open ? '0' : '-100%')});
   }
 `;
 
-const ButtonWrapper = styled.div`
-  display: flex;
-  width: 50%;
-  height: 7rem;
-  justify-content: space-between;
-  margin: 0 auto;
-  flex-direction: column;
-  padding-top: 1rem;
-`;
-
-const TableWrapper = styled.div`
-  @media (min-width: ${mediaQueries.mobileSmall}) {
-    padding-top: 3rem;
-  }
-`;
 export default AnalysisSlider;

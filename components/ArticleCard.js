@@ -13,8 +13,8 @@ const Card = styled(motion.div)`
   padding: 1rem;
   min-height: 30rem;
   margin-bottom: 2rem;
-  background: ${(props) => props.theme.greyColour};
-  color: ${(props) => props.theme.textColour};
+  background: var(--light-grey);
+  color: var(--text-color);
   @media (max-width: 834px) {
     width: 70%;
   }
@@ -42,9 +42,8 @@ const ArticleLink = styled(motion.a)`
   font-size: 1rem;
   line-height: 2.6rem;
   text-align: center;
-  color: ${(props) => props.theme.whiteColour};
-  background-color: ${(props) => props.theme.buttonColour};
-  border-radius: ${(props) => props.theme.buttonRadius};
+  color: var(--white-color);
+  background-color: var(--blue-color);
 
   &:hover {
     cursor: pointer;

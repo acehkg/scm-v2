@@ -22,6 +22,12 @@ const DesktopLinks = () => {
       <Link href={'/malt'}>
         <Links>MALT</Links>
       </Link>
+      <Link href={'/news'}>
+        <Links>NEWS</Links>
+      </Link>
+      <Link href={'/maltschool'}>
+        <Links>LEARN</Links>
+      </Link>
     </Wrapper>
   );
 };
