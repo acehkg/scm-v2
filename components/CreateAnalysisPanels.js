@@ -71,7 +71,7 @@ const CreatePanel = ({ analysis, dataSize, size }) => {
       'S/T Ratio': analysis.stRatio,
       FAN: analysis.fan,
       'Diastatic Power': analysis.diastaticPower,
-      'Alpha Amaylase': analysis.alphaAmalyase,
+      'Alpha Amylase': analysis.alphaAmaylase,
       'Beta Glucan': analysis.betaGlucan,
       Filtration: analysis.filtration,
       Turbidity: analysis.turbidity,

@@ -37,5 +37,12 @@ const Links = styled.a`
   font-weight: 700;
   padding: 0 2rem;
   color: var(--red-color);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+    color: var(--redlightened-color);
+  }
 `;
 export default DesktopLinks;

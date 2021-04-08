@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { slideRightFadeIn, fadeInUp } from '../../animations/Animations';
 //Layout Components
-import ButtonLink from '../../components/Interfaces/ButtonLink';
 import ButtonClick from '../../components/Interfaces/ButtonClick';
 import AnalysisSlider from '../../components/AnalysisSlider';
 import BackButton from '../../components/Interfaces/BackButton';
@@ -19,6 +18,11 @@ const PageWrapper = styled(motion.div)`
   align-items: center;
   flex-direction: column;
   text-align: center;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    height: 70%;
+  }
 `;
 
 const MaltImage = ({ malt, variants }) => {
@@ -36,6 +40,7 @@ const MaltImage = ({ malt, variants }) => {
 };
 const ImageWrapper = styled(motion.div)`
   width: 100%;
+  max-height: 500px;
 `;
 
 const MaltInfo = ({ variants, malt }) => {
@@ -46,7 +51,6 @@ const MaltInfo = ({ variants, malt }) => {
         {malt.variety} {malt.grain}
       </Title>
       <Title>{malt.grown}</Title>
-      <Title>Harvested {malt.harvested}</Title>
       <Title>Malted {malt.malted}</Title>
     </InfoWrapper>
   );
@@ -65,14 +69,6 @@ const Title = styled(motion.h2)`
   font-weight: 400;
   color: var(--text-color);
 `;
-
-const BackToMalt = ({ variants, text, href, size }) => {
-  return (
-    <BackWrapper variants={variants}>
-      <ButtonLink href={href} size={size} text={text} />
-    </BackWrapper>
-  );
-};
 
 const BackWrapper = styled(motion.div)`
   padding-bottom: 1rem;
@@ -96,7 +92,13 @@ const Malt = ({ malt }) => {
   };
   return (
     <PageWrapper exit={{ opacity: 0 }} initial='initial' animate='animate'>
-      <BackButton size={24} color='var(--red-color)' href='/malt' />
+      <BackButton
+        size={24}
+        color='var(--red-color)'
+        href='/malt'
+        text='BACK'
+        fontSize='.75rem'
+      />
       <MaltImage malt={malt} variants={slideRightFadeIn} />
       <MaltInfo malt={malt} variants={fadeInUp} />
       <SeeAnalysis
@@ -105,12 +107,6 @@ const Malt = ({ malt }) => {
         size='small'
         text='ANALYSIS'
       />
-      {/*<BackToMalt
-        href='/malt'
-        size='small'
-        text='ALL MALT'
-        variants={fadeInUp}
-      />*/}
       <AnalysisSlider analysis={malt.analysis} open={open} setOpen={setOpen} />
     </PageWrapper>
   );

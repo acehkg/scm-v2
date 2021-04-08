@@ -3,13 +3,17 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { stagger, fadeInUp, slideRightFadeIn } from '../animations/Animations';
 //Layout Components
+import ForwardButton from '../components/Interfaces/ForwardButton';
 import ButtonLink from '../components/Interfaces/ButtonLink';
 
 const CardWrapper = styled(motion.div)`
   padding-top: 2rem;
   padding-bottom: 2rem;
   width: 100%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const BatchImage = ({ batch, variants }) => {
@@ -32,26 +36,33 @@ const BatchInfo = ({ batch, variants }) => {
   return (
     <InfoWrapper variants={variants}>
       <Title>{batch.name}</Title>
-      <Title>Type: {batch.type}</Title>
     </InfoWrapper>
   );
 };
 const InfoWrapper = styled(motion.div)`
   padding-bottom: 1.5rem;
+  color: var(--red-color);
 `;
 
 const Title = styled(motion.p)`
   font-size: 1.5rem;
-  padding: 0.5rem 0;
+  padding-bottom: 0.5rem;
 `;
 
-const SeeMalt = ({ variants, text, href, size }) => {
+const SeeMalt = ({ variants, text, href, size, fontSize }) => {
   return (
-    <motion.div variants={variants}>
-      <ButtonLink href={href} size={size} text={text} />
-    </motion.div>
+    <DetailsWrapper variants={variants}>
+      <ForwardButton
+        size={size}
+        color='var(--red-color)'
+        href={href}
+        text={text}
+        fontSize={fontSize}
+      />
+    </DetailsWrapper>
   );
 };
+const DetailsWrapper = styled(motion.div)``;
 const BatchCard = ({ batch }) => {
   return (
     <CardWrapper variants={stagger}>
@@ -59,9 +70,10 @@ const BatchCard = ({ batch }) => {
       <BatchInfo batch={batch} variants={fadeInUp} />
       <SeeMalt
         href={batch.slug}
-        size='medium'
+        size={24}
         text='DETAILS'
         variants={fadeInUp}
+        fontSize='1rem'
       />
     </CardWrapper>
   );

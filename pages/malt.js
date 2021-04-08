@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import { stagger } from '../animations/Animations';
 //layout components
 import BatchCard from '../components/BatchCard';
-//media queries
-import { mediaQueries } from '../style/mediaqueries';
 
 const Analysis = ({ batches }) => {
   return (
@@ -28,13 +26,11 @@ const PageWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: ${mediaQueries.ipad}) {
+  @media (min-width: 834px) {
     flex-direction: unset;
   }
 `;
-const BatchWrapper = styled.div`
-  padding-bottom: 2rem;
-`;
+
 export const getStaticProps = async () => {
   const faunaClient = new faunadb.Client({ secret: process.env.FAUNA_SECRET });
 

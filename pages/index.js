@@ -37,7 +37,7 @@ const Banner = ({ variants }) => {
 
 const TitleContainer = styled(motion.div)``;
 const Title = styled.h1`
-  color: var(--text-color);
+  color: var(--red-color);
   font-size: clamp(1.5rem, 3vw, 3rem);
   font-weight: 700;
 `;
@@ -51,7 +51,7 @@ const Motto = ({ variants }) => {
 };
 const MottoText = styled(motion.p)`
   text-align: center;
-  color: var(--text-color);
+  color: var(--red-color);
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   line-height: 1.5;
 `;
@@ -92,11 +92,12 @@ const Wrapper = styled(motion.div)`
   width: 80%;
   margin: 0 auto;
 
-  @media (min-width: ${mediaQueries.ipad}) {
+  @media (min-width: 834px) {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-around;
+    height: 70%;
   }
 `;
 
@@ -104,14 +105,9 @@ const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 80%;
+  height: 100%;
   align-items: center;
   justify-content: space-evenly;
-
-  @media (min-width: ${mediaQueries.ipad}) {
-    width: 70%;
-    height: 70%;
-  }
 `;
 
 export default Home;

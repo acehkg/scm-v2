@@ -83,6 +83,7 @@ a {
     --light-grey:lightgrey;
     --white-color:#fff;
     --blueLightened-color:hsl(203.1, 79.5%,17.3%,.5);
+    --redlightened-color:hsl(0,64.6%,18.8%,.8);
 
    //button radius
    --button-radius:5%; 
