@@ -14,8 +14,7 @@ const StyledClose = styled.div`
     border-radius: 10px;
     transform-origin: 4.5px;
     transition: opacity 0.1s ease;
-    background-color: var(--blue-color);
-
+    background-color: ${(props) => props.color};
     &:nth-child(1) {
       transform: rotate(45deg);
       opacity: ${(open) => (open ? '1' : '0')};
@@ -28,13 +27,14 @@ const StyledClose = styled.div`
   }
 `;
 
-const Close = ({ open, setOpen }) => {
+const Close = ({ open, setOpen, color }) => {
   return (
     <StyledClose
       onClick={() => {
         setOpen(!open);
       }}
       open={open}
+      color={color}
     >
       <div />
       <div />

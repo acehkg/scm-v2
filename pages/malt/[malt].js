@@ -3,18 +3,22 @@ import faunadb from 'faunadb';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { slideRightFadeIn, fadeInUp } from '../../animations/Animations';
+import {
+  slideRightFadeIn,
+  fadeInUp,
+  stagger,
+} from '../../animations/Animations';
 //Layout Components
-import ButtonClick from '../../components/Interfaces/ButtonClick';
-import AnalysisSlider from '../../components/AnalysisSlider';
+import ForwardButton from '../../components/Interfaces/ForwardButton';
 import BackButton from '../../components/Interfaces/BackButton';
+import AnalysisSlider from '../../components/AnalysisSlider';
 
 const PageWrapper = styled(motion.div)`
   width: 80%;
   height: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   text-align: center;
@@ -39,14 +43,18 @@ const MaltImage = ({ malt, variants }) => {
   );
 };
 const ImageWrapper = styled(motion.div)`
-  width: 100%;
-  max-height: 500px;
+  margin: 0 auto;
+  width: 100;
+  height: auto;
+
+  @media (min-width: 1024px) {
+    width: 60%;
+  }
 `;
 
 const MaltInfo = ({ variants, malt }) => {
   return (
     <InfoWrapper variants={variants}>
-      <Title>{malt.name}</Title>
       <Title>
         {malt.variety} {malt.grain}
       </Title>
@@ -61,22 +69,27 @@ const InfoWrapper = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  color: var(--red-color);
 `;
 
 const Title = styled(motion.h2)`
   padding-top: 0.5rem;
   font-size: 1.25rem;
   font-weight: 400;
-  color: var(--text-color);
 `;
 
-const BackWrapper = styled(motion.div)`
-  padding-bottom: 1rem;
-`;
-const SeeAnalysis = ({ variants, text, onClick, size }) => {
+const BackWrapper = styled(motion.div)``;
+const SeeAnalysis = ({ variants, text, onClick, size, fontSize, color }) => {
   return (
     <AnalysisWrapper variants={variants}>
-      <ButtonClick onClick={onClick} text={text} size={size} />
+      <ForwardButton
+        onClick={onClick}
+        text={text}
+        size={size}
+        type='button'
+        fontSize={fontSize}
+        color={color}
+      />
     </AnalysisWrapper>
   );
 };
@@ -84,6 +97,12 @@ const SeeAnalysis = ({ variants, text, onClick, size }) => {
 const AnalysisWrapper = styled(motion.div)`
   padding-bottom: 1rem;
 `;
+
+const InfoImageWrapper = styled(motion.div)`
+  padding-top: 1rem;
+  width: 100%;
+`;
+
 const Malt = ({ malt }) => {
   const [open, setOpen] = useState(false);
 
@@ -91,23 +110,34 @@ const Malt = ({ malt }) => {
     setOpen(!open);
   };
   return (
-    <PageWrapper exit={{ opacity: 0 }} initial='initial' animate='animate'>
-      <BackButton
-        size={24}
-        color='var(--red-color)'
-        href='/malt'
-        text='BACK'
-        fontSize='.75rem'
-      />
-      <MaltImage malt={malt} variants={slideRightFadeIn} />
-      <MaltInfo malt={malt} variants={fadeInUp} />
+    <PageWrapper
+      exit={{ opacity: 0 }}
+      initial='initial'
+      animate='animate'
+      variants={stagger}
+    >
+      <BackWrapper variants={fadeInUp}>
+        <BackButton
+          size={24}
+          color='var(--red-color)'
+          href='/malt'
+          text='BACK'
+          fontSize='1rem'
+        />
+      </BackWrapper>
+      <InfoImageWrapper variants={fadeInUp}>
+        <MaltImage malt={malt} variants={slideRightFadeIn} />
+        <MaltInfo malt={malt} variants={fadeInUp} />
+      </InfoImageWrapper>
       <SeeAnalysis
         variants={fadeInUp}
         onClick={handleOpen}
-        size='small'
+        size={24}
         text='ANALYSIS'
+        fontSize='1rem'
+        color='var(--red-color)'
       />
-      <AnalysisSlider analysis={malt.analysis} open={open} setOpen={setOpen} />
+      <AnalysisSlider malt={malt} open={open} setOpen={setOpen} />
     </PageWrapper>
   );
 };

@@ -58,6 +58,7 @@ const SeeMalt = ({ variants, text, href, size, fontSize }) => {
         href={href}
         text={text}
         fontSize={fontSize}
+        type='link'
       />
     </DetailsWrapper>
   );

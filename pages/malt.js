@@ -28,6 +28,7 @@ const PageWrapper = styled(motion.div)`
 
   @media (min-width: 834px) {
     flex-direction: unset;
+    height: 75%;
   }
 `;
 
