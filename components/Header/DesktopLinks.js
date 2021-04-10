@@ -26,7 +26,7 @@ const DesktopLinks = () => {
         <Links>NEWS</Links>
       </Link>
       <Link href={'/maltschool'}>
-        <Links>LEARN</Links>
+        <Links>BLOG</Links>
       </Link>
     </Wrapper>
   );

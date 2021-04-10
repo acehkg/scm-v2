@@ -7,14 +7,14 @@ import { stagger } from '../animations/Animations';
 
 const Container = styled(motion.div)`
   width: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-gap: 2rem;
+  justify-items: center;
 
-  @media (max-width: 834px) {
-    width: 90%;
-    flex-direction: column;
+  @media (min-width: 390px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 `;
 
