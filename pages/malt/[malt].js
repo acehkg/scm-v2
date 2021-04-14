@@ -32,23 +32,19 @@ const PageWrapper = styled(motion.div)`
 const MaltImage = ({ malt, variants }) => {
   return (
     <ImageWrapper variants={variants}>
-      <Image
-        src={`/images/products/${malt.batch}.png`}
-        alt={`${malt.name}`}
-        layout='responsive'
-        width={1024}
-        height={768}
-      />
+      <img src='/images/malt.jpg' alt={`${malt.name}`} />
     </ImageWrapper>
   );
 };
 const ImageWrapper = styled(motion.div)`
-  margin: 0 auto;
-  width: 100;
-  height: auto;
+  img {
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
 
-  @media (min-width: 1024px) {
-    width: 60%;
+    @media (min-width: 1024px) {
+      width: 30%;
+    }
   }
 `;
 
@@ -67,6 +63,7 @@ const MaltInfo = ({ variants, malt }) => {
 const InfoWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
+  padding-top: 1rem;
   align-items: center;
   justify-content: space-evenly;
   color: var(--red-color);

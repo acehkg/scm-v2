@@ -36,6 +36,7 @@ const BatchInfo = ({ batch, variants }) => {
   return (
     <InfoWrapper variants={variants}>
       <Title>{batch.name}</Title>
+      <Batch>Batch # {batch.batch}</Batch>
     </InfoWrapper>
   );
 };
@@ -49,6 +50,10 @@ const Title = styled(motion.p)`
   padding-bottom: 0.5rem;
 `;
 
+const Batch = styled(motion.p)`
+  font-size: 1rem;
+  text-align: center;
+`;
 const SeeMalt = ({ variants, text, href, size, fontSize }) => {
   return (
     <DetailsWrapper variants={variants}>

@@ -33,7 +33,7 @@ const Maltschool = ({ articles }) => {
   );
 };
 export const getStaticProps = async () => {
-  const directory = `${process.cwd()}/content/maltschool`;
+  const directory = `${process.cwd()}/content/blog`;
   const filenames = fs.readdirSync(directory);
   const articles = filenames.map((filename) => {
     //read the file from the fs
@@ -41,7 +41,7 @@ export const getStaticProps = async () => {
     //pull out frontmatter
     const { data } = matter(fileContent);
     //return name, slug
-    const slug = `/maltschool/${filename.replace('.md', '')}`;
+    const slug = `/blog/${filename.replace('.md', '')}`;
     const article = {
       ...data,
       slug,

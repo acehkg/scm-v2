@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import marked from 'marked';
+import BackButton from './Interfaces/BackButton';
 
 const Container = styled.div`
   width: 60%;
@@ -25,12 +26,23 @@ const Container = styled.div`
     }
   }
 `;
-
+const ButtonWrapper = styled.div`
+  padding-top: 1rem;
+`;
 const Article = ({ content, data }) => {
   const html = marked(content);
   return (
     <Container>
       <div dangerouslySetInnerHTML={{ __html: html }} />
+      <ButtonWrapper>
+        <BackButton
+          size={24}
+          color='var(--text-color)'
+          href='/blog'
+          text='BACK'
+          fontSize='1rem'
+        />{' '}
+      </ButtonWrapper>
     </Container>
   );
 };

@@ -1,13 +1,13 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import Article from '../../components/Article';
+import Article from '../../components/BlogArticle';
 
 const ArticlePage = ({ article: { data, content } }) => {
   return <Article content={content} data={data} />;
 };
 
 export const getStaticPaths = () => {
-  const directory = `${process.cwd()}/content/maltschool`;
+  const directory = `${process.cwd()}/content/blog`;
   const filenames = fs.readdirSync(directory);
   const paths = filenames.map((filename) => {
     return {
@@ -23,7 +23,7 @@ export const getStaticPaths = () => {
 };
 export const getStaticProps = async (context) => {
   const article = context.params.article;
-  const filePath = `${process.cwd()}/content/maltschool/${article}.md`;
+  const filePath = `${process.cwd()}/content/blog/${article}.md`;
   const fileContent = fs.readFileSync(filePath).toString();
   const { data, content } = matter(fileContent);
   return {

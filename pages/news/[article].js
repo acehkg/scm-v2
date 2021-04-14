@@ -1,6 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import Article from '../../components/Article';
+import Article from '../../components/NewsArticle';
 
 const ArticleNews = ({ article: { data, content } }) => {
   return <Article content={content} data={data} />;

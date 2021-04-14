@@ -31,6 +31,11 @@ const AnalysisFacts = ({ analysis }) => {
             </tr>
             <tr>
               <th colSpan='3'>
+                <p>Plumps {analysis.plumps}</p>
+              </th>
+            </tr>
+            <tr>
+              <th colSpan='3'>
                 <p>Fine Extract {analysis.fine}</p>
               </th>
             </tr>
@@ -71,7 +76,7 @@ const AnalysisFacts = ({ analysis }) => {
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Alpha Amaylase {analysis.alphaAmaylase}</p>
+                <p>Alpha Amylase {analysis.alphaAmaylase}</p>
               </th>
             </tr>
             <tr>
