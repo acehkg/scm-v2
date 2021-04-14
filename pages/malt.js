@@ -4,19 +4,30 @@ import { motion } from 'framer-motion';
 import { stagger } from '../animations/Animations';
 //layout components
 import BatchCard from '../components/BatchCard';
+//SEO
+import PageSeo from '../components/SEO';
+
+const meta = {
+  title: 'Our Malt',
+  description: 'The latest batches of malt by Simcoe County Malt for sale ',
+  image: '/images/logolargered.png',
+};
 
 const Analysis = ({ batches }) => {
   return (
-    <PageWrapper
-      exit={{ opacity: 0 }}
-      initial='initial'
-      animate='animate'
-      variants={stagger}
-    >
-      {batches.map((b) => {
-        return <BatchCard key={b.id} batch={b} />;
-      })}
-    </PageWrapper>
+    <>
+      <PageSeo meta={meta} />
+      <PageWrapper
+        exit={{ opacity: 0 }}
+        initial='initial'
+        animate='animate'
+        variants={stagger}
+      >
+        {batches.map((b) => {
+          return <BatchCard key={b.id} batch={b} />;
+        })}
+      </PageWrapper>
+    </>
   );
 };
 const PageWrapper = styled(motion.div)`

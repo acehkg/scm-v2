@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-const PageHead = ({ meta }) => {
+const PageSeo = ({ meta }) => {
   return (
     <Head>
       <link rel='apple-touch-icon' sizes='57x57' href='/apple-icon-57x57.png' />
@@ -70,9 +70,15 @@ const PageHead = ({ meta }) => {
         content={meta.description}
       />
       <meta property='og:site_name' content='Simcoe County Malt Inc.' />
-      <meta property='og:image' content={meta.image ? meta.image : ''} />
-      <meta name='twitter:image' content={meta.image ? meta.image : ''} />
-      <meta name='twitter:site' content={meta.site} />
+      <meta
+        property='og:image'
+        content={`${process.env.NEXT_PUBLIC_BASE_URL}${meta.image}`}
+      />
+      <meta
+        name='twitter:image'
+        content={`${process.env.NEXT_PUBLIC_BASE_URL}${meta.image}`}
+      />
+      <meta name='twitter:site' content='https://www.simcoecountymalt.com' />
       <meta name='twitter:card' content='summary' />
       <meta name='twitter:title' content={meta.title} />
       <meta name='twitter:description' content={meta.description} />
@@ -80,4 +86,4 @@ const PageHead = ({ meta }) => {
   );
 };
 
-export default PageHead;
+export default PageSeo;

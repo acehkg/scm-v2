@@ -1,9 +1,15 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import Article from '../../components/BlogArticle';
+import PageSeo from '../../components/SEO';
 
 const ArticlePage = ({ article: { data, content } }) => {
-  return <Article content={content} data={data} />;
+  return (
+    <>
+      <PageSeo meta={data} />
+      <Article content={content} data={data} />
+    </>
+  );
 };
 
 export const getStaticPaths = () => {

@@ -4,6 +4,7 @@ title: It's time to launch!
 description: Simcoe County Malt Inc. proudly begins operation
 date: 10/03/2021
 author: Andrew Embury
+image: /images/news/time-to-launch.jpg
 ---
 
 ## Welcome!

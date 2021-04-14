@@ -5,8 +5,16 @@ import { motion } from 'framer-motion';
 import { fadeInDown, fadeInUp, stagger } from '../animations/Animations';
 //Layout Components
 import ButtonLink from '../components/Interfaces/ButtonLink';
-//Media Queries
-import { mediaQueries } from '../style/mediaqueries';
+//SEO
+import PageSeo from '../components/SEO';
+
+const meta = {
+  title: 'Simcoe County Malt Inc.',
+  description:
+    'Locally grown barley crafted with care into premium malt. Better ingredients make better beer.',
+  image: '/images/logolargered.png',
+  site: 'https://scm-v2.vercel.app',
+};
 
 const FeatureImage = ({ variants }) => {
   return (
@@ -66,24 +74,27 @@ const CallToAction = ({ variants, text, href, size }) => {
 
 const Home = () => {
   return (
-    <Wrapper
-      exit={{ opacity: 0 }}
-      initial='initial'
-      animate='animate'
-      variants={stagger}
-    >
-      <FeatureImage variants={fadeInDown} />
-      <TextWrapper>
-        <Banner variants={fadeInUp} />
-        <Motto variants={fadeInUp} />
-        <CallToAction
-          variants={fadeInUp}
-          text='SEE OUR MALT'
-          href='/malt'
-          size='large'
-        />
-      </TextWrapper>
-    </Wrapper>
+    <>
+      <PageSeo meta={meta} />
+      <Wrapper
+        exit={{ opacity: 0 }}
+        initial='initial'
+        animate='animate'
+        variants={stagger}
+      >
+        <FeatureImage variants={fadeInDown} />
+        <TextWrapper>
+          <Banner variants={fadeInUp} />
+          <Motto variants={fadeInUp} />
+          <CallToAction
+            variants={fadeInUp}
+            text='SEE OUR MALT'
+            href='/malt'
+            size='large'
+          />
+        </TextWrapper>
+      </Wrapper>
+    </>
   );
 };
 

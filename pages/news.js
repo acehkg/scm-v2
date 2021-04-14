@@ -4,6 +4,14 @@ import styled from 'styled-components';
 import ArticleCard from '../components/ArticleCard';
 import { motion } from 'framer-motion';
 import { stagger } from '../animations/Animations';
+//SEO
+import PageSeo from '../components/SEO';
+
+const meta = {
+  title: 'News',
+  description: 'The latest News from Simcoe County Malt',
+  image: '/images/logolargered.png',
+};
 
 const Container = styled(motion.div)`
   width: 80%;
@@ -20,16 +28,19 @@ const Container = styled(motion.div)`
 
 const News = ({ articles }) => {
   return (
-    <Container
-      exit={{ opacity: 0 }}
-      initial='initial'
-      animate='animate'
-      variants={stagger}
-    >
-      {articles.map((article) => {
-        return <ArticleCard key={article.id} article={article} />;
-      })}
-    </Container>
+    <>
+      <PageSeo meta={meta} />
+      <Container
+        exit={{ opacity: 0 }}
+        initial='initial'
+        animate='animate'
+        variants={stagger}
+      >
+        {articles.map((article) => {
+          return <ArticleCard key={article.id} article={article} />;
+        })}
+      </Container>
+    </>
   );
 };
 export const getStaticProps = async () => {
