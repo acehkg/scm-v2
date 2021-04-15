@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import { mediaQueries } from '../../style/mediaqueries';
 
 const Wrapper = styled.nav`
   display: none;
-  @media (min-width: ${mediaQueries.ipad}) {
+  @media (min-width: 835px) {
     padding: 1rem 0;
     height: 100%;
     width: 50%;

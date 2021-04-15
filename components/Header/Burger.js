@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { mediaQueries } from '../../style/mediaqueries';
 import useNav from '../../hooks/useNav';
 
 const StyledBurger = styled.div`
@@ -9,7 +8,7 @@ const StyledBurger = styled.div`
   width: 2rem;
   height: 2rem;
   z-index: 2;
-  @media (min-width: ${mediaQueries.ipad}) {
+  @media (min-width: 835px) {
     display: none;
   }
 
