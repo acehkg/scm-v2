@@ -16,32 +16,32 @@ const AnalysisFacts = ({ analysis }) => {
           <tbody>
             <tr>
               <th colSpan='3'>
-                <p>Moisture {analysis.moisture}</p>
+                <p>Moisture {analysis.moisture} %</p>
               </th>
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Color {analysis.color}</p>
+                <p>Color {analysis.color} &deg;SRM</p>
               </th>
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Friability {analysis.friability}</p>
+                <p>Friability {analysis.friability} %</p>
               </th>
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Plumps {analysis.plumps}</p>
+                <p>Plumps {analysis.plumps} %</p>
               </th>
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Fine Extract {analysis.fine}</p>
+                <p>Fine Extract {analysis.fine} %</p>
               </th>
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Coarse Extract {analysis.coarse}</p>
+                <p>Coarse Extract {analysis.coarse} %</p>
               </th>
             </tr>
             <tr>
@@ -51,12 +51,12 @@ const AnalysisFacts = ({ analysis }) => {
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Total Protein {analysis.totalProtein}</p>
+                <p>Total Protein {analysis.totalProtein} %</p>
               </th>
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Soluble Protein {analysis.solubleProtein}</p>
+                <p>Soluble Protein {analysis.solubleProtein} %</p>
               </th>
             </tr>
             <tr>
@@ -66,32 +66,32 @@ const AnalysisFacts = ({ analysis }) => {
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>FAN {analysis.fan}</p>
+                <p>FAN {analysis.fan} mg/L</p>
               </th>
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Diastatic Power {analysis.diastaticPower}</p>
+                <p>Diastatic Power {analysis.diastaticPower} &deg;L</p>
               </th>
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Alpha Amylase {analysis.alphaAmaylase}</p>
+                <p>Alpha Amylase {analysis.alphaAmaylase} D.U.</p>
               </th>
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Beta Glucan {analysis.betaGlucan}</p>
+                <p>Beta Glucan {analysis.betaGlucan} mg/L</p>
               </th>
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Filtration {analysis.filtration}</p>
+                <p>Filtration Time {analysis.filtration}</p>
               </th>
             </tr>
             <tr>
               <th colSpan='3'>
-                <p>Turbidity {analysis.turbidity}</p>
+                <p>Turbidity {analysis.turbidity} NTU</p>
               </th>
             </tr>
             <ThickEnd>

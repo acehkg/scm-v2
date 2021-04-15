@@ -42,6 +42,9 @@ const ImageWrapper = styled(motion.div)`
     height: auto;
     border-radius: 50%;
 
+    @media (min-width: 768px) {
+      width: 50%;
+    }
     @media (min-width: 1024px) {
       width: 30%;
     }

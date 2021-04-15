@@ -22,9 +22,6 @@ const DesktopLinks = () => {
       <Link href={'/malt'}>
         <Links>MALT</Links>
       </Link>
-      <Link href={'/news'}>
-        <Links>NEWS</Links>
-      </Link>
       <Link href={'/blog'}>
         <Links>BLOG</Links>
       </Link>
@@ -34,7 +31,12 @@ const DesktopLinks = () => {
     </Wrapper>
   );
 };
-
+const Border = styled.div`
+  width: 100%;
+  background-color: var(--blue-color);
+  height: 2px;
+  transition: 0.5s transform ease;
+`;
 const Links = styled.a`
   font-size: 1.5rem;
   font-weight: 700;
@@ -42,10 +44,28 @@ const Links = styled.a`
   color: var(--red-color);
   transition: transform 0.3s ease;
   cursor: pointer;
+  position: relative;
 
   &:hover {
-    transform: scale(1.1);
-    color: var(--redlightened-color);
+    transform: scale(1.05);
+  }
+  &:hover:after {
+    opacity: 1;
+    width: 70%;
+  }
+
+  &:after {
+    position: absolute;
+    border: 0 solid transparent;
+    height: 0;
+    border-bottom: 2px solid var(--blue-color);
+    content: '';
+    width: 0;
+    bottom: -0.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
   }
 `;
 export default DesktopLinks;

@@ -26,9 +26,6 @@ const MobileLinks = () => {
       <Link href={'/malt'}>
         <Links onClick={handleNav}>MALT</Links>
       </Link>
-      <Link href={'/news'}>
-        <Links onClick={handleNav}>NEWS</Links>
-      </Link>
       <Link href={'/blog'}>
         <Links onClick={handleNav}>BLOG</Links>
       </Link>
