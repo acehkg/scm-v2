@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Image from 'next/image';
 //Animation
 import { motion } from 'framer-motion';
 import { fadeInDown, fadeInUp, stagger } from '../animations/Animations';
@@ -19,19 +18,15 @@ const meta = {
 const FeatureImage = ({ variants }) => {
   return (
     <ImageWrapper variants={variants}>
-      <Image
-        src='/images/barley-768-2.png'
-        alt='Barley'
-        layout='responsive'
-        width={768}
-        height={569}
-      />
+      <img src='/images/barley-768-2.png' alt='Barley' />
     </ImageWrapper>
   );
 };
 const ImageWrapper = styled(motion.div)`
-  width: 100%;
-  z-index: -1;
+  img {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const Banner = ({ variants }) => {
@@ -43,7 +38,9 @@ const Banner = ({ variants }) => {
   );
 };
 
-const TitleContainer = styled(motion.div)``;
+const TitleContainer = styled(motion.div)`
+  text-align: center;
+`;
 const Title = styled.h1`
   color: var(--red-color);
   font-size: clamp(1.5rem, 3vw, 3rem);

@@ -18,12 +18,7 @@ const Head = styled.header`
 const Header = () => {
   return (
     <Head>
-      <Logo
-        src='/images/logored.png'
-        alt='Simcoe County Malt'
-        height={322}
-        width={402}
-      />
+      <Logo src='/images/logored.png' alt='Simcoe County Malt' />
       <DesktopLinks />
       <Burger />
     </Head>

@@ -1,24 +1,19 @@
 import styled from 'styled-components';
-import Image from 'next/image';
-import { mediaQueries } from '../../style/mediaqueries';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div``;
+
+const Image = styled.img`
   width: 100px;
+  height: auto;
 
-  @media (min-width: ${mediaQueries.ipad}) {
+  @media (min-width: 768px) {
     width: 150px;
   }
 `;
-const Logo = ({ src, alt, height, width }) => {
+const Logo = ({ src, alt }) => {
   return (
     <Wrapper>
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        layout='responsive'
-      />
+      <Image src={src} alt={alt} />
     </Wrapper>
   );
 };

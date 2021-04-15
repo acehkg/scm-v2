@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { stagger, fadeInUp, slideRightFadeIn } from '../animations/Animations';
@@ -18,18 +17,22 @@ const CardWrapper = styled(motion.div)`
 const BatchImage = ({ batch, variants }) => {
   return (
     <ImageWrapper variants={variants}>
-      <Image
+      <img
         src={`/images/products/${batch.batch}.png`}
         alt='Simcoe County Malt Bag'
-        layout='responsive'
-        width={1024}
-        height={768}
       />
     </ImageWrapper>
   );
 };
 const ImageWrapper = styled(motion.div)`
-  width: 100%;
+  img {
+    width: 100%;
+    height: auto;
+
+    @media (min-width: 1024px) {
+      width: 90%;
+    }
+  }
 `;
 const BatchInfo = ({ batch, variants }) => {
   return (

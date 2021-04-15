@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import faunadb from 'faunadb';
 import styled from 'styled-components';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   slideRightFadeIn,
