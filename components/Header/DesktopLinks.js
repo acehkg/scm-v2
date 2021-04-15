@@ -28,6 +28,9 @@ const DesktopLinks = () => {
       <Link href={'/blog'}>
         <Links>BLOG</Links>
       </Link>
+      <Link href={'/contact'}>
+        <Links>CONTACT</Links>
+      </Link>
     </Wrapper>
   );
 };

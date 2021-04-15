@@ -32,6 +32,9 @@ const MobileLinks = () => {
       <Link href={'/blog'}>
         <Links onClick={handleNav}>BLOG</Links>
       </Link>
+      <Link href={'/contact'}>
+        <Links onClick={handleNav}>CONTACT</Links>
+      </Link>
     </Wrapper>
   );
 };
