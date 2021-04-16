@@ -11,6 +11,7 @@ import {
 import ForwardButton from '../../components/Interfaces/ForwardButton';
 import BackButton from '../../components/Interfaces/BackButton';
 import AnalysisSlider from '../../components/AnalysisSlider';
+import MaltSeo from '../../components/MaltSeo';
 
 const PageWrapper = styled(motion.div)`
   width: 80%;
@@ -109,35 +110,38 @@ const Malt = ({ malt }) => {
     setOpen(!open);
   };
   return (
-    <PageWrapper
-      exit={{ opacity: 0 }}
-      initial='initial'
-      animate='animate'
-      variants={stagger}
-    >
-      <BackWrapper variants={fadeInUp}>
-        <BackButton
+    <>
+      <MaltSeo meta={malt} />
+      <PageWrapper
+        exit={{ opacity: 0 }}
+        initial='initial'
+        animate='animate'
+        variants={stagger}
+      >
+        <BackWrapper variants={fadeInUp}>
+          <BackButton
+            size={24}
+            color='var(--red-color)'
+            href='/malt'
+            text='BACK'
+            fontSize='1rem'
+          />
+        </BackWrapper>
+        <InfoImageWrapper variants={fadeInUp}>
+          <MaltImage malt={malt} variants={slideRightFadeIn} />
+          <MaltInfo malt={malt} variants={fadeInUp} />
+        </InfoImageWrapper>
+        <SeeAnalysis
+          variants={fadeInUp}
+          onClick={handleOpen}
           size={24}
-          color='var(--red-color)'
-          href='/malt'
-          text='BACK'
+          text='ANALYSIS'
           fontSize='1rem'
+          color='var(--red-color)'
         />
-      </BackWrapper>
-      <InfoImageWrapper variants={fadeInUp}>
-        <MaltImage malt={malt} variants={slideRightFadeIn} />
-        <MaltInfo malt={malt} variants={fadeInUp} />
-      </InfoImageWrapper>
-      <SeeAnalysis
-        variants={fadeInUp}
-        onClick={handleOpen}
-        size={24}
-        text='ANALYSIS'
-        fontSize='1rem'
-        color='var(--red-color)'
-      />
-      <AnalysisSlider malt={malt} open={open} setOpen={setOpen} />
-    </PageWrapper>
+        <AnalysisSlider malt={malt} open={open} setOpen={setOpen} />
+      </PageWrapper>
+    </>
   );
 };
 
