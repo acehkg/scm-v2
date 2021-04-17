@@ -1,6 +1,9 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  cursor: pointer;
+`;
 
 const Image = styled.img`
   width: 100px;
@@ -13,7 +16,9 @@ const Image = styled.img`
 const Logo = ({ src, alt }) => {
   return (
     <Wrapper>
-      <Image src={src} alt={alt} />
+      <Link href='/'>
+        <Image src={src} alt={alt} />
+      </Link>
     </Wrapper>
   );
 };
