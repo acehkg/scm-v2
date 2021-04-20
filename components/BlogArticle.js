@@ -29,7 +29,7 @@ const Container = styled.div`
 const ButtonWrapper = styled.div`
   padding-top: 1rem;
 `;
-const Article = ({ content, data }) => {
+const Article = ({ content }) => {
   const html = marked(content);
   return (
     <Container>

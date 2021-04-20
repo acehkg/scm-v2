@@ -1,13 +1,25 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import Article from '../../components/BlogArticle';
 import PageSeo from '../../components/SEO';
+import { fadeInUp } from '../../animations/Animations';
+
+const PageWrapper = styled(motion.div)``;
 
 const ArticlePage = ({ article: { data, content } }) => {
   return (
     <>
       <PageSeo meta={data} />
-      <Article content={content} data={data} />
+      <PageWrapper
+        exit={{ opacity: 0 }}
+        initial='initial'
+        animate='animate'
+        variants={fadeInUp}
+      >
+        <Article content={content} data={data} />
+      </PageWrapper>
     </>
   );
 };
