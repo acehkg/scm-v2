@@ -8,7 +8,7 @@ const Container = styled.div`
   color: var(--text-color);
 
   @media (min-width: 1024px) {
-    width: 60%;
+    width: 65%;
   }
 
   h2 {
