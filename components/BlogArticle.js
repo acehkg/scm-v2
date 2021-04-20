@@ -3,9 +3,13 @@ import marked from 'marked';
 import BackButton from './Interfaces/BackButton';
 
 const Container = styled.div`
-  width: 60%;
+  width: 80%;
   margin: 3rem auto;
   color: var(--text-color);
+
+  @media (min-width: 1024px) {
+    width: 60%;
+  }
 
   h2 {
     font-size: 1.5rem;
