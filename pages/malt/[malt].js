@@ -10,6 +10,7 @@ import {
 //Layout Components
 import ForwardButton from '../../components/Interfaces/ForwardButton';
 import BackButton from '../../components/Interfaces/BackButton';
+import DownButton from '../../components/Interfaces/DownButton';
 import AnalysisSlider from '../../components/AnalysisSlider';
 import MaltSeo from '../../components/MaltSeo';
 
@@ -59,6 +60,13 @@ const MaltInfo = ({ variants, malt }) => {
       </Title>
       <Title>{malt.grown}</Title>
       <Title>Malted {malt.malted}</Title>
+      <DownButton
+        href={`https://simcoecountymalt.s3.ca-central-1.amazonaws.com/malt-info/${malt.batch}.pdf`}
+        text='Download Specifications'
+        size={24}
+        color='var(--red-color)'
+        fontSize='1rem'
+      />
     </InfoWrapper>
   );
 };
@@ -74,7 +82,7 @@ const InfoWrapper = styled(motion.div)`
 
 const Title = styled(motion.h2)`
   padding-top: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 400;
 `;
 
