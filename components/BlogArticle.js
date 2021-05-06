@@ -18,6 +18,7 @@ const Container = styled.div`
 
   p {
     line-height: 1.8;
+    padding-bottom: 1rem;
   }
 
   a {

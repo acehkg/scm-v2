@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   align-items: center;
   cursor: pointer;
 `;
-const Text = styled.p`
+const Text = styled.span`
   font-size: ${(props) => props.font};
   color: ${(props) => props.color};
 `;
