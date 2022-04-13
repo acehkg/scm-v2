@@ -34,16 +34,21 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <>
-      <NavOpenProvider>
+      <Component {...pageProps} />
+      <GlobalStyles />
+      <Font />
+    </>
+    /*  <>
+       <NavOpenProvider>
         <Slider />
         <Header />
         <AnimatePresence exitBeforeEnter>
           <Component {...pageProps} />
         </AnimatePresence>
-      </NavOpenProvider>
+      </NavOpenProvider> 
       <GlobalStyles />
       <Font />
-    </>
+    </> */
   );
 };
 
